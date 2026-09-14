@@ -80,7 +80,7 @@ Dự án tuân thủ nghiêm ngặt mô hình 3 lớp (Controller - Service - Re
 TicketRush/
 ├── docker-compose.yml          # Cấu hình tự động hóa triển khai
 ├── build.gradle                # Quản lý thư viện Backend
-├── src/main/java/com/ticketrush/
+├── backend/main/java/com/ticketrush/
 │   ├── controller/             # Tầng giao tiếp REST API (Nhận Request, trả Response)
 │   ├── service/                # Tầng nghiệp vụ cốt lõi (Xử lý Queue, Đặt vé, Cấp Token)
 │   ├── repository/             # Tầng tương tác CSDL (Thực thi JPA, Lock DB)

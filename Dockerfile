@@ -9,7 +9,7 @@ RUN sed -i 's/\r$//' gradlew && chmod +x gradlew
 # Cache dependencies
 RUN ./gradlew dependencies --no-daemon || true
 
-COPY src/ src/
+COPY backend/ backend/
 RUN ./gradlew bootJar --no-daemon -x test
 
 # ========== Run stage ==========
