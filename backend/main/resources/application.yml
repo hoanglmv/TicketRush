@@ -65,8 +65,20 @@ app:
   cors:
     allowed-origins: http://localhost:5173
 
-  # LLM API
+  # LLM API Configuration for AI Agents
   llm:
+    provider: ${LLM_PROVIDER:openrouter}
+    openrouter:
+      api-key: ${OPENROUTER_API_KEY:}
+      model: ${OPENROUTER_MODEL:google/gemini-2.0-flash-exp:free}
+      base-url: ${OPENROUTER_BASE_URL:https://openrouter.ai/api/v1}
     groq:
-      api-key: ${GROQ_API_KEY:YOUR_GROQ_API_KEY_HERE}
-      model: llama3-8b-8192
+      api-key: ${GROQ_API_KEY:}
+      model: ${GROQ_MODEL:llama3-8b-8192}
+
+  # RAG & Vector Database Configuration
+  rag:
+    enabled: true
+    qdrant-url: ${QDRANT_URL:http://localhost:6333}
+    collection-name: ticketrush_knowledge
+    embedding-model: ${EMBEDDING_MODEL:text-embedding-3-small}

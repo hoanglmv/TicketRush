@@ -19,6 +19,7 @@ import AdminEventCreatePage from './pages/admin/AdminEventCreatePage';
 import AdminEventEditPage from './pages/admin/AdminEventEditPage';
 import AdminEventDetailPage from './pages/admin/AdminEventDetailPage';
 import ProfilePage from './pages/ProfilePage';
+import ChatbotWidget from './components/ChatbotWidget';
 import './index.css';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
@@ -66,6 +67,7 @@ function App() {
               <div className="flex-1 flex flex-col">
                 <AppRoutes />
               </div>
+              <ChatbotWidget />
               <Footer />
             </div>
           </SettingsProvider>

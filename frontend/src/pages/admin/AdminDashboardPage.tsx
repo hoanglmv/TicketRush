@@ -4,11 +4,13 @@ import { adminApi } from '../../api';
 import { DashboardStats } from '../../types';
 import { useSettings } from '../../contexts/SettingsContext';
 import { useLanguage } from '../../i18n';
-import { Upload, Image as ImageIcon, Loader2 } from 'lucide-react';
+import { Upload, Image as ImageIcon, Loader2, BarChart3, Bot } from 'lucide-react';
+import AgentMonitorTab from '../../components/admin/AgentMonitorTab';
 
 export default function AdminDashboardPage() {
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState<'overview' | 'agent-monitor'>('overview');
   const { t } = useLanguage();
   
   const { settings, updateSettingsPayload, loading: settingsLoading } = useSettings();
@@ -91,11 +93,41 @@ export default function AdminDashboardPage() {
           <p className="text-white/40 mt-2">{t('admin.overview')}</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
-          <div className="bg-[#111111] p-8 rounded-2xl border border-white/5 shadow-2xl flex flex-col items-center justify-center hover:-translate-y-1 transition-all group">
-            <div className="text-4xl font-black text-[#00b14f] mb-2 group-hover:scale-110 transition-transform">{stats?.totalEvents || 0}</div>
-            <div className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">{t('admin.events')}</div>
-          </div>
+        {/* Tab Switcher */}
+        <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-4">
+          <button
+            onClick={() => setActiveTab('overview')}
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all ${
+              activeTab === 'overview'
+                ? 'bg-[#00b14f] text-white shadow-lg shadow-[#00b14f]/20'
+                : 'bg-white/5 text-white/50 hover:bg-white/10 hover:text-white'
+            }`}
+          >
+            <BarChart3 className="w-4 h-4" />
+            Tổng Quan Doanh Thu & Cấu Hình
+          </button>
+          <button
+            onClick={() => setActiveTab('agent-monitor')}
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all ${
+              activeTab === 'agent-monitor'
+                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/20'
+                : 'bg-white/5 text-white/50 hover:bg-white/10 hover:text-white'
+            }`}
+          >
+            <Bot className="w-4 h-4 text-amber-300" />
+            AI Agent & RAG Performance Monitor
+          </button>
+        </div>
+
+        {activeTab === 'agent-monitor' && <AgentMonitorTab />}
+
+        {activeTab === 'overview' && (
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
+              <div className="bg-[#111111] p-8 rounded-2xl border border-white/5 shadow-2xl flex flex-col items-center justify-center hover:-translate-y-1 transition-all group">
+                <div className="text-4xl font-black text-[#00b14f] mb-2 group-hover:scale-110 transition-transform">{stats?.totalEvents || 0}</div>
+                <div className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">{t('admin.events')}</div>
+              </div>
           <div className="bg-[#111111] p-8 rounded-2xl border border-white/5 shadow-2xl flex flex-col items-center justify-center hover:-translate-y-1 transition-all group">
             <div className="text-4xl font-black text-[#00b14f] mb-2 group-hover:scale-110 transition-transform">
               {(stats?.totalRevenue || 0).toLocaleString('vi-VN')}₫
@@ -188,6 +220,8 @@ export default function AdminDashboardPage() {
             </button>
           </div>
         </div>
+      </>
+    )}
 
       </div>
     </div>

@@ -1,0 +1,65 @@
+[
+  {
+    "eventId": 47,
+    "name": "Gala Nhạc Việt 2026 - Thanh Âm Tương Lai",
+    "genre": "Pop, V-Pop, Ballad, Dance",
+    "vibe": "Hoành tráng, sôi động, đa thế hệ, lễ hội âm nhạc rực rỡ",
+    "artists": ["Nhiều nghệ sĩ hàng đầu V-Pop", "Hồ Ngọc Hà", "Noo Phước Thịnh", "Bảo Anh"],
+    "highlights": "Đại nhạc hội thường niên hội tụ hơn 30 ca sĩ ngôi sao với các bản mashup độc quyền, vũ đạo hiện đại và hiệu ứng ánh sáng 3D mapping.",
+    "targetAudience": "Phù hợp mọi lứa tuổi, gia đình, nhóm bạn trẻ yêu thích nhạc trẻ đương đại."
+  },
+  {
+    "eventId": 48,
+    "name": "Hồ Ngọc Hà - Love Songs 2026",
+    "genre": "Acoustic, Pop Ballad, Trữ tình",
+    "vibe": "Lãng mạn, sâu lắng, da diết, cảm xúc trong tiết trời se lạnh",
+    "artists": ["Hồ Ngọc Hà", "Khách mời đặc biệt"],
+    "highlights": "Đêm nhạc Love Songs biểu tượng thương hiệu Hồ Ngọc Hà giữa không gian thơ mộng của thành phố sương mù Đà Lạt. Hát live cùng dàn nhạc giao hưởng và ban nhạc mộc.",
+    "targetAudience": "Cặp đôi, người yêu thích nhạc ballad tình cảm lãng mạn."
+  },
+  {
+    "eventId": 49,
+    "name": "Trúc Nhân - The Live Concert",
+    "genre": "Pop, Funk, R&B, Kịch tính",
+    "vibe": "Hài hước, bùng nổ năng lượng, sáng tạo, quái chiêu",
+    "artists": ["Trúc Nhân"],
+    "highlights": "Hàng loạt hit trăm triệu view: Bốn Chữ Lắm, Sáng Mắt Chưa, Có Không Giữ Mất Đừng Tìm, Thật Bất Ngờ được phối mới cực kỳ cuốn hút.",
+    "targetAudience": "Khán giả trẻ, học sinh sinh viên, người tìm kiếm trải nghiệm âm nhạc vui vẻ và bùng nổ."
+  },
+  {
+    "eventId": 50,
+    "name": "SpaceSpeakers - KOSMIK 2026",
+    "genre": "Hip-hop, Rap, Trap, Electronic",
+    "vibe": "Ngầu, cuồng nhiệt, bass dập mạnh mẽ, thời thượng",
+    "artists": ["Touliver", "Binz", "Soobin", "Rhymastic", "SlimV", "Kimmese", "Cường Seven"],
+    "highlights": "Sân khấu tương tác 360 độ độc nhất vô nhị. Đế chế Rap Việt SpaceSpeakers đem đến bữa tiệc âm thanh và thị giác đỉnh cao.",
+    "targetAudience": "Cộng đồng fan Underground, Rap/Hip-hop và âm nhạc điện tử."
+  },
+  {
+    "eventId": 51,
+    "name": "Rock Storm 2026 - Sự Trở Lại",
+    "genre": "Hard Rock, Heavy Metal, Alternative Rock",
+    "vibe": "Nhiệt huyết, cuồng nhiệt, cháy hết mình, hoài niệm",
+    "artists": ["Bức Tường", "Ngũ Cung", "Microwave", "Quái Vật Tí Hon"],
+    "highlights": "Bão Rock huyền thoại trở lại Đà Nẵng sau nhiều năm chờ đợi. Hàng ngàn cánh tay cùng giơ cao hòa giọng theo những bản hùng ca bất hủ.",
+    "targetAudience": "Tín đồ nhạc Rock, thế hệ 8x, 9x và những trái tim đam mê rock nhiệt huyết."
+  },
+  {
+    "eventId": 55,
+    "name": "Show của Đen 2026",
+    "genre": "Rap tự sự, Mộc mạc, Acoustic Hip-hop",
+    "vibe": "Gần gũi, đồng cảm, chữa lành tâm hồn, chân thành",
+    "artists": ["Đen Vâu", "Khách mời bí mật"],
+    "highlights": "Hành trình âm nhạc của những 'Đồng Âm' tại SVĐ Quốc gia Mỹ Đình. Nơi mọi người tìm thấy sự an ủi sau những ngày bận rộn giữa cuộc sống hiện đại.",
+    "targetAudience": "Đồng Âm khắp cả nước, người đi làm, người cần năng lượng tích cực và sự bình yên."
+  },
+  {
+    "eventId": 56,
+    "name": "Anh Trai Say Hi - Live Concert 2026",
+    "genre": "Pop Dance, R&B, EDM, Hip-hop hiện đại",
+    "vibe": "Cực hot, visual đỉnh cao, vũ đạo bốc lửa, xu hướng trending",
+    "artists": ["HIEUTHUHAI", "Rhyder", "Captain Boy", "Quang Hùng MasterD", "Anh Tú Atus", "Isaac"],
+    "highlights": "Cơn sốt âm nhạc lớn nhất năm quy tụ 30 'anh trai' tài năng với các bản hit triệu stream như Ngáo Ngơ, Sao Hạng A, Catch Me If You Can.",
+    "targetAudience": "Gen Z, fan hâm mộ show truyền hình thực tế âm nhạc hàng đầu."
+  }
+]

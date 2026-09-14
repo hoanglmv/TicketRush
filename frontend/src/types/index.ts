@@ -136,3 +136,23 @@ export interface Demographics {
   ageGroups: Record<string, number>;
   totalAttendees: number;
 }
+
+export interface ChatbotEventCard {
+  id: number;
+  name: string;
+  venue: string;
+  city: string;
+  eventDate: string;
+  bannerUrl?: string;
+  minPrice?: number;
+  status: string;
+  isHot: boolean;
+}
+
+export interface ChatbotResponse {
+  reply: string;
+  events?: ChatbotEventCard[];
+  suggestions?: string[];
+  actionType?: string;
+  targetEventId?: number;
+}
