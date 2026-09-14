@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ticketrush-frontend
+  namespace: ticketrush
+  labels:
+    app: ticketrush-frontend
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: ticketrush-frontend
+  template:
+    metadata:
+      labels:
+        app: ticketrush-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: ticketrush-frontend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5173
+              name: http
+          env:
+            - name: VITE_API_URL
+              value: ""
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5173
+            initialDelaySeconds: 5
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ticketrush-frontend
+  namespace: ticketrush
+spec:
+  ports:
+    - port: 80
+      targetPort: 5173
+      name: http
+  selector:
+    app: ticketrush-frontend

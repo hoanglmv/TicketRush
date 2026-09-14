@@ -10,9 +10,12 @@ import com.ticketrush.enums.EventStatus;
 import com.ticketrush.enums.SeatStatus;
 import com.ticketrush.enums.TicketStatus;
 import com.ticketrush.exception.*;
+import com.ticketrush.event.BookingEvent;
+import com.ticketrush.event.PaymentEvent;
 import com.ticketrush.repository.SeatRepository;
 import com.ticketrush.repository.TicketRepository;
 import com.ticketrush.repository.UserRepository;
+import com.ticketrush.service.kafka.EventProducerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -21,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -33,6 +37,7 @@ public class SeatBookingService {
     private final UserRepository userRepository;
     private final QRCodeService qrCodeService;
     private final SimpMessagingTemplate messagingTemplate;
+    private final EventProducerService eventProducerService;
 
     /**
      * Khóa ghế (Lock seat) cho một người dùng. Sử dụng PESSIMISTIC_WRITE để tránh lỗi Race Condition (nhiều người cùng mua 1 ghế).
@@ -79,6 +84,16 @@ public class SeatBookingService {
         // 6. Broadcast seat status change via WebSocket
         broadcastSeatUpdate(event.getId(), seat);
 
+        // 7. Stream event to Kafka
+        eventProducerService.sendBookingEvent(BookingEvent.builder()
+                .eventType("LOCK_SEAT")
+                .userId(userId)
+                .seatId(seatId)
+                .eventId(event.getId())
+                .correlationId(UUID.randomUUID().toString())
+                .timestamp(LocalDateTime.now())
+                .build());
+
         log.info("Seat {} locked by user {} for event {}", seat.getLabel(), userId, event.getId());
 
         return toTicketResponse(ticket);
@@ -118,6 +133,19 @@ public class SeatBookingService {
 
         // Broadcast
         broadcastSeatUpdate(ticket.getEvent().getId(), seat);
+
+        // Stream PaymentEvent to Kafka (triggers async notification / email worker)
+        eventProducerService.sendPaymentEvent(PaymentEvent.builder()
+                .eventType("PAYMENT_SUCCESS")
+                .ticketId(ticket.getId())
+                .userId(userId)
+                .eventId(ticket.getEvent().getId())
+                .seatLabel(seat.getLabel())
+                .amount(ticket.getPrice())
+                .userEmail(ticket.getUser() != null ? ticket.getUser().getEmail() : null)
+                .correlationId(UUID.randomUUID().toString())
+                .timestamp(LocalDateTime.now())
+                .build());
 
         log.info("Ticket {} paid by user {} for seat {}", ticketId, userId, seat.getLabel());
 

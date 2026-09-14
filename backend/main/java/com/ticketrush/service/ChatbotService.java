@@ -7,9 +7,12 @@ import com.ticketrush.entity.Event;
 import com.ticketrush.entity.Zone;
 import com.ticketrush.enums.EventStatus;
 import com.ticketrush.enums.SeatStatus;
+import com.ticketrush.event.AgentTelemetryEvent;
 import com.ticketrush.repository.EventRepository;
 import com.ticketrush.repository.SeatRepository;
 import com.ticketrush.repository.ZoneRepository;
+import com.ticketrush.service.kafka.EventProducerService;
+import com.ticketrush.service.rag.AgentMetricsService;
 import com.ticketrush.service.rag.EmbeddingService;
 import com.ticketrush.service.rag.QdrantVectorService;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +23,7 @@ import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -35,6 +39,7 @@ public class ChatbotService {
     private final EmbeddingService embeddingService;
     private final QdrantVectorService qdrantVectorService;
     private final AgentMetricsService agentMetricsService;
+    private final EventProducerService eventProducerService;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Value("${app.llm.provider:openrouter}")
@@ -121,6 +126,20 @@ public class ChatbotService {
         res.setLatencyMs(totalTime);
         res.setModelUsed(modelUsed);
         res.setRagScore(topScore);
+
+        // Stream telemetry event to Kafka for real-time async monitoring
+        eventProducerService.sendAgentTelemetry(AgentTelemetryEvent.builder()
+                .logId(logId)
+                .userQuery(userMsg)
+                .replySnippet(res.getReply() != null && res.getReply().length() > 100 ? res.getReply().substring(0, 100) : res.getReply())
+                .latencyMs(totalTime)
+                .retrievalTimeMs(retrievalTime)
+                .similarityScore(topScore)
+                .ragSource(ragSource)
+                .modelUsed(modelUsed)
+                .status(status)
+                .timestamp(LocalDateTime.now())
+                .build());
 
         return res;
     }

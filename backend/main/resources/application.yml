@@ -48,6 +48,22 @@ spring:
             enable: true
             required: true
 
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.add.type.headers: false
+    consumer:
+      group-id: ticketrush-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+        spring.json.trusted.packages: "*"
+
 # JWT Configuration
 app:
   jwt:
@@ -82,3 +98,12 @@ app:
     qdrant-url: ${QDRANT_URL:http://localhost:6333}
     collection-name: ticketrush_knowledge
     embedding-model: ${EMBEDDING_MODEL:text-embedding-3-small}
+
+  # Kafka Event Streaming Configuration
+  kafka:
+    enabled: ${KAFKA_ENABLED:true}
+    topics:
+      booking: ticket-booking-events
+      payment: ticket-payment-events
+      notification: ticket-notification-events
+      telemetry: agent-telemetry-events
