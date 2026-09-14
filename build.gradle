@@ -17,18 +17,17 @@ java {
 sourceSets {
     main {
         java {
-            srcDirs = ['backend/main/java']
+            srcDirs = ['backend']
+            exclude 'resources/**'
+            exclude 'test/**'
         }
         resources {
-            srcDirs = ['backend/main/resources']
+            srcDirs = ['backend/resources']
         }
     }
     test {
         java {
-            srcDirs = ['backend/test/java']
-        }
-        resources {
-            srcDirs = ['backend/test/resources']
+            srcDirs = ['backend/test']
         }
     }
 }
@@ -55,6 +54,9 @@ dependencies {
     implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
     runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
     runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+
+    // Jackson JSON
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
 
     // Lombok
     compileOnly 'org.projectlombok:lombok'

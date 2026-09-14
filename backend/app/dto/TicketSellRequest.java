@@ -1,0 +1,13 @@
+package app.dto;
+
+import lombok.Data;
+import java.math.BigDecimal;
+
+@Data
+/** 
+ * DTO (Data Transfer Object) - Lớp truyền tải dữ liệu.
+ * Dùng để định nghĩa cấu trúc dữ liệu nhận từ Request hoặc trả về Response.
+ */
+public class TicketSellRequest {
+    private BigDecimal price;
+}

@@ -1,0 +1,11 @@
+package app.exception;
+
+/** 
+ * Lớp định nghĩa Exception (lỗi ngoại lệ) tùy chỉnh.
+ * Dùng để ném và xử lý các lỗi nghiệp vụ riêng của ứng dụng.
+ */
+public class ResourceNotFoundException extends RuntimeException {
+    public ResourceNotFoundException(String message) {
+        super(message);
+    }
+}
