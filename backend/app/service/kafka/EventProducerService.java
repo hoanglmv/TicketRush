@@ -72,13 +72,21 @@ public class EventProducerService {
 
     public void sendNotificationEvent(NotificationEvent event) {
         if (!isKafkaActive()) return;
-        String key = event.getRecipientEmail() != null ? event.getRecipientEmail() : "notification";
-        kafkaTemplate.send(notificationTopic, key, event);
+        try {
+            String key = event.getRecipientEmail() != null ? event.getRecipientEmail() : "notification";
+            kafkaTemplate.send(notificationTopic, key, event);
+        } catch (Exception e) {
+            log.warn("Non-critical: Failed to send Kafka notification event: {}", e.getMessage());
+        }
     }
 
     public void sendAgentTelemetry(AgentTelemetryEvent event) {
         if (!isKafkaActive()) return;
-        kafkaTemplate.send(telemetryTopic, event.getLogId(), event);
+        try {
+            kafkaTemplate.send(telemetryTopic, event.getLogId(), event);
+        } catch (Exception e) {
+            log.warn("Non-critical: Failed to stream telemetry event to Kafka: {}", e.getMessage());
+        }
     }
 
     public boolean isKafkaActive() {

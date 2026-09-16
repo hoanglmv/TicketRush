@@ -32,6 +32,7 @@ public class KnowledgeIngestionService implements ApplicationRunner {
         totalIngested += ingestMarkdownDocument("classpath:knowledge/policies_and_faq.md", "POLICY");
         totalIngested += ingestMarkdownDocument("classpath:knowledge/venues_and_logistics.md", "VENUE");
         totalIngested += ingestEventsJson("classpath:knowledge/events_semantic_context.json");
+        totalIngested += ingestCrawledEventsJson("classpath:knowledge/ticketbox_crawled_events.json");
 
         log.info("RAG Knowledge Ingestion complete! Total chunks indexed: {}", totalIngested);
     }
@@ -116,6 +117,46 @@ public class KnowledgeIngestionService implements ApplicationRunner {
             }
         } catch (Exception e) {
             log.error("Failed to ingest events json {}: {}", location, e.getMessage());
+        }
+        return count;
+    }
+
+    private int ingestCrawledEventsJson(String location) {
+        int count = 0;
+        try {
+            PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+            Resource resource = resolver.getResource(location);
+            if (!resource.exists()) return 0;
+
+            String jsonStr;
+            try (InputStream is = resource.getInputStream()) {
+                jsonStr = new String(is.readAllBytes(), StandardCharsets.UTF_8);
+            }
+
+            JsonNode root = objectMapper.readTree(jsonStr);
+            if (root.isArray()) {
+                for (JsonNode item : root) {
+                    String id = item.path("id").asText("event_" + System.currentTimeMillis());
+                    String title = item.path("title").asText("");
+                    String content = item.path("content").asText("");
+
+                    String textChunk = String.format("Sự kiện: %s\n%s", title, content);
+                    String chunkId = "crawled_" + id;
+                    List<Double> vector = embeddingService.getEmbedding(textChunk);
+
+                    Map<String, Object> payload = Map.of(
+                            "text", textChunk,
+                            "category", "CRAWLED_EVENT",
+                            "title", title,
+                            "source", "ticketbox_crawled_events.json"
+                    );
+
+                    qdrantVectorService.upsertPoint(chunkId, vector, payload);
+                    count++;
+                }
+            }
+        } catch (Exception e) {
+            log.warn("Crawled events knowledge ingestion skipped: {}", e.getMessage());
         }
         return count;
     }
