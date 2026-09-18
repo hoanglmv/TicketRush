@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { eventApi } from '../api';
 import { EventResponse } from '../types';
 import { useLanguage } from '../i18n';
-import { Search, Plus, Ticket, LogOut, ChevronDown } from 'lucide-react';
+import { Search } from 'lucide-react';
 
 export default function Navbar() {
   const { user, logout, isAdmin, isAuthenticated } = useAuth();

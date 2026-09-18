@@ -65,9 +65,6 @@ export default function AdminDashboardPage() {
     }
   };
 
-  const isImageField = (key: string) => {
-    return key.startsWith('hero_');
-  };
 
   const getFriendlyName = (key: string) => {
     return t(`admin.img_${key.replace('hero_', '')}`);

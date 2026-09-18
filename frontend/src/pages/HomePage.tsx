@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Calendar, MapPin, ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { Calendar, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { eventApi } from '../api';
 import { EventResponse } from '../types';
@@ -187,14 +187,14 @@ export default function HomePage() {
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Dynamic Category Sections based on Standard Filters */}
         {[
-          { id: 'LIVE_MUSIC', label: t('nav.concerts') },
-          { id: 'ARTS', label: t('nav.arts') },
-          { id: 'SPORTS', label: t('nav.sports') },
-          { id: 'WORKSHOP', label: t('nav.workshop') },
-          { id: 'EXPERIENCE', label: t('nav.experience') },
-          { id: 'OTHER', label: t('nav.other') },
+          { id: 'LIVE_MUSIC', label: t('nav.concerts'), match: (c?: string) => ['LIVE_MUSIC', 'CONCERTS', 'POP', 'ROCK', 'WORLD'].includes(c?.toUpperCase() || '') },
+          { id: 'ARTS', label: t('nav.arts'), match: (c?: string) => ['ARTS', 'THEATER'].includes(c?.toUpperCase() || '') },
+          { id: 'SPORTS', label: t('nav.sports'), match: (c?: string) => ['SPORTS', 'SPORT'].includes(c?.toUpperCase() || '') },
+          { id: 'WORKSHOP', label: t('nav.workshop'), match: (c?: string) => ['WORKSHOP', 'SEMINAR'].includes(c?.toUpperCase() || '') },
+          { id: 'EXPERIENCE', label: t('nav.experience'), match: (c?: string) => ['EXPERIENCE', 'EXHIBITION'].includes(c?.toUpperCase() || '') },
+          { id: 'OTHER', label: t('nav.other'), match: (c?: string) => ['OTHER', 'ENTERTAINMENT'].includes(c?.toUpperCase() || '') },
         ].map(cat => {
-          const categoryEvents = events.filter(e => e.category === cat.id).slice(0, 4);
+          const categoryEvents = events.filter(e => cat.match(e.category)).slice(0, 4);
           if (categoryEvents.length === 0) return null;
 
           return (

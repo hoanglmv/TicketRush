@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -171,7 +171,7 @@ export default function ChatbotWidget() {
         <p key={idx} className={line.trim() === '' ? 'h-2' : 'my-0.5'}>
           {parts.map((part, pIdx) => {
             if (part.startsWith('**') && part.endsWith('**')) {
-              return <strong key={pIdx} className="font-semibold text-gray-900">{part.slice(2, -2)}</strong>;
+              return <strong key={pIdx} className="font-bold text-white text-[#00b14f]">{part.slice(2, -2)}</strong>;
             }
             return part;
           })}
@@ -189,17 +189,17 @@ export default function ChatbotWidget() {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white shadow-xl hover:shadow-indigo-500/30 transition-all duration-300"
+            className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#008a3d] via-[#00b14f] to-[#00d860] text-white shadow-2xl shadow-[#00b14f]/40 border border-white/20 hover:shadow-[#00b14f]/60 transition-all duration-300"
             aria-label="Open AI Assistant"
           >
             <span className="absolute -top-1 -right-1 flex h-4 w-4">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-white"></span>
+              <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-[#121216]"></span>
             </span>
-            <Bot className="w-7 h-7 transition-transform group-hover:scale-110" />
+            <Bot className="w-7 h-7 transition-transform group-hover:rotate-12 duration-300" />
           </motion.button>
         )}
       </AnimatePresence>
@@ -212,20 +212,21 @@ export default function ChatbotWidget() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="w-[90vw] sm:w-[410px] h-[580px] max-h-[85vh] bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-100 flex flex-col overflow-hidden"
+            className="w-[92vw] sm:w-[420px] h-[590px] max-h-[85vh] bg-[#141419]/95 backdrop-blur-2xl rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.85)] border border-white/10 flex flex-col overflow-hidden text-white"
           >
             {/* Header */}
-            <div className="px-4 py-3.5 bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 text-white flex items-center justify-between shadow-sm">
+            <div className="px-5 py-4 bg-[#1a1a22]/90 border-b border-white/10 text-white flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-full bg-white/15 border border-white/20 flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-amber-300" />
-                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 border-2 border-indigo-700 rounded-full"></span>
+                <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-br from-[#00b14f]/30 to-[#008a3d]/10 border border-[#00b14f]/40 flex items-center justify-center shadow-lg shadow-[#00b14f]/20">
+                  <Sparkles className="w-5 h-5 text-[#00b14f]" />
+                  <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-[#00b14f] border-2 border-[#1a1a22] rounded-full"></span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-sm flex items-center gap-1.5 leading-tight">
-                    TicketRush AI Concierge
+                  <h3 className="font-black text-sm flex items-center gap-1.5 leading-tight tracking-tight text-white">
+                    Ticket<span className="text-[#00b14f]">Rush</span> AI Concierge
                   </h3>
-                  <p className="text-xs text-indigo-100 font-normal">
+                  <p className="text-[11px] text-white/50 font-medium flex items-center gap-1 mt-0.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00b14f] animate-pulse"></span>
                     Trợ lý hỗ trợ đặt vé thông minh
                   </p>
                 </div>
@@ -234,14 +235,14 @@ export default function ChatbotWidget() {
                 <button
                   onClick={handleResetChat}
                   title="Làm mới hội thoại"
-                  className="p-1.5 rounded-lg hover:bg-white/20 text-indigo-100 hover:text-white transition-colors"
+                  className="p-2 rounded-xl hover:bg-white/10 text-white/60 hover:text-white transition-colors"
                 >
                   <RotateCcw className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
                   title="Đóng chat"
-                  className="p-1.5 rounded-lg hover:bg-white/20 text-indigo-100 hover:text-white transition-colors"
+                  className="p-2 rounded-xl hover:bg-white/10 text-white/60 hover:text-white transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -249,20 +250,20 @@ export default function ChatbotWidget() {
             </div>
 
             {/* Messages Area */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 text-sm scroll-smooth">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 text-sm scroll-smooth bg-gradient-to-b from-[#141419] to-[#0f0f13]">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
                   className={`flex flex-col ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}
                 >
                   <div
-                    className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 ${
+                    className={`max-w-[85%] rounded-2xl px-4 py-3 ${
                       msg.sender === 'user'
-                        ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-br-none shadow-md'
-                        : 'bg-gray-100 text-gray-800 rounded-tl-none border border-gray-200/70'
+                        ? 'bg-gradient-to-r from-[#00b14f] to-[#008a3d] text-white font-medium rounded-br-none shadow-lg shadow-[#00b14f]/25'
+                        : 'bg-[#1c1c24] text-white/90 rounded-tl-none border border-white/10 shadow-md'
                     }`}
                   >
-                    <div className="leading-relaxed">
+                    <div className="leading-relaxed text-xs sm:text-sm">
                       {formatTextWithMarkdown(msg.text)}
                     </div>
                   </div>
@@ -277,41 +278,41 @@ export default function ChatbotWidget() {
                             navigate(`/events/${ev.id}`);
                             setIsOpen(false);
                           }}
-                          className="group flex gap-3 p-2.5 bg-white rounded-xl border border-gray-200 hover:border-indigo-400 hover:shadow-md transition-all cursor-pointer"
+                          className="group flex gap-3 p-2.5 bg-[#1a1a22] hover:bg-[#22222c] rounded-2xl border border-white/10 hover:border-[#00b14f]/50 hover:shadow-[0_10px_30px_rgba(0,177,79,0.15)] transition-all cursor-pointer"
                         >
-                          <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 shrink-0">
+                          <div className="w-16 h-16 rounded-xl overflow-hidden bg-black/40 shrink-0 border border-white/5">
                             <img
                               src={ev.bannerUrl || 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30'}
                               alt={ev.name}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                             />
                           </div>
                           <div className="flex-1 min-w-0 flex flex-col justify-between">
                             <div>
                               <div className="flex items-center gap-1.5">
                                 {ev.isHot && (
-                                  <span className="px-1.5 py-0.5 text-[10px] font-semibold bg-rose-100 text-rose-600 rounded">
+                                  <span className="px-1.5 py-0.5 text-[9px] font-black bg-red-500/20 text-red-400 border border-red-500/30 rounded-full uppercase tracking-wider">
                                     HOT
                                   </span>
                                 )}
-                                <h4 className="font-semibold text-gray-900 text-xs truncate group-hover:text-indigo-600">
+                                <h4 className="font-bold text-white text-xs truncate group-hover:text-[#00b14f] transition-colors">
                                   {ev.name}
                                 </h4>
                               </div>
-                              <p className="text-[11px] text-gray-500 flex items-center gap-1 mt-0.5 truncate">
-                                <MapPin className="w-3 h-3 shrink-0" /> {ev.venue}, {ev.city}
+                              <p className="text-[11px] text-white/50 flex items-center gap-1 mt-1 truncate">
+                                <MapPin className="w-3 h-3 text-[#00b14f] shrink-0" /> {ev.venue}, {ev.city}
                               </p>
                               {ev.eventDate && (
-                                <p className="text-[11px] text-gray-500 flex items-center gap-1 mt-0.5">
-                                  <Calendar className="w-3 h-3 shrink-0" /> {ev.eventDate}
+                                <p className="text-[11px] text-white/50 flex items-center gap-1 mt-0.5">
+                                  <Calendar className="w-3 h-3 text-[#00b14f] shrink-0" /> {ev.eventDate}
                                 </p>
                               )}
                             </div>
-                            <div className="flex items-center justify-between mt-1 pt-1 border-t border-gray-100">
-                              <span className="text-xs font-bold text-indigo-600">
+                            <div className="flex items-center justify-between mt-1 pt-1.5 border-t border-white/5">
+                              <span className="text-xs font-black text-[#00b14f]">
                                 {ev.minPrice ? `${ev.minPrice.toLocaleString()} đ` : 'Xem chi tiết'}
                               </span>
-                              <span className="text-[11px] text-indigo-600 font-medium flex items-center gap-0.5 group-hover:translate-x-0.5 transition-transform">
+                              <span className="text-[11px] text-[#00b14f] font-bold flex items-center gap-0.5 group-hover:translate-x-1 transition-transform">
                                 Chọn vé <ArrowUpRight className="w-3 h-3" />
                               </span>
                             </div>
@@ -328,7 +329,7 @@ export default function ChatbotWidget() {
                         <button
                           key={sIdx}
                           onClick={() => handleSendMessage(sug)}
-                          className="px-2.5 py-1 text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-full border border-indigo-200/80 transition-all text-left"
+                          className="px-3 py-1.5 text-xs bg-white/5 hover:bg-[#00b14f]/15 text-white/80 hover:text-white rounded-full border border-white/10 hover:border-[#00b14f]/50 transition-all text-left backdrop-blur-sm"
                         >
                           {sug}
                         </button>
@@ -337,11 +338,11 @@ export default function ChatbotWidget() {
                   )}
 
                   {/* Footer info: timestamp, latency, feedback */}
-                  <div className="flex items-center justify-between w-full mt-1 px-1 text-[10px] text-gray-400">
+                  <div className="flex items-center justify-between w-full mt-1.5 px-1 text-[10px] text-white/40">
                     <div className="flex items-center gap-1.5">
                       <span>{msg.timestamp}</span>
                       {msg.latencyMs && (
-                        <span className="text-[9px] px-1 bg-gray-100 rounded text-gray-400 font-mono">
+                        <span className="text-[9px] px-1.5 py-0.5 bg-white/5 border border-white/10 rounded-md text-white/60 font-mono">
                           ⚡{msg.latencyMs}ms
                         </span>
                       )}
@@ -350,8 +351,8 @@ export default function ChatbotWidget() {
                       <div className="flex items-center gap-1">
                         <button
                           onClick={() => handleFeedback(msg.id, msg.logId!, true)}
-                          className={`p-1 rounded hover:bg-gray-100 transition-colors ${
-                            msg.feedback === 'positive' ? 'text-emerald-600 bg-emerald-50 font-bold' : 'text-gray-400 hover:text-emerald-600'
+                          className={`p-1.5 rounded-lg hover:bg-white/10 transition-colors ${
+                            msg.feedback === 'positive' ? 'text-[#00b14f] bg-[#00b14f]/20 font-bold' : 'text-white/40 hover:text-[#00b14f]'
                           }`}
                           title="Hữu ích"
                         >
@@ -359,8 +360,8 @@ export default function ChatbotWidget() {
                         </button>
                         <button
                           onClick={() => handleFeedback(msg.id, msg.logId!, false)}
-                          className={`p-1 rounded hover:bg-gray-100 transition-colors ${
-                            msg.feedback === 'negative' ? 'text-rose-600 bg-rose-50 font-bold' : 'text-gray-400 hover:text-rose-600'
+                          className={`p-1.5 rounded-lg hover:bg-white/10 transition-colors ${
+                            msg.feedback === 'negative' ? 'text-rose-400 bg-rose-500/20 font-bold' : 'text-white/40 hover:text-rose-400'
                           }`}
                           title="Chưa hữu ích"
                         >
@@ -374,14 +375,14 @@ export default function ChatbotWidget() {
 
               {/* Typing indicator */}
               {isLoading && (
-                <div className="flex items-center gap-2 text-gray-400 text-xs">
-                  <div className="w-7 h-7 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center">
+                <div className="flex items-center gap-2 text-white/50 text-xs">
+                  <div className="w-7 h-7 rounded-full bg-[#00b14f]/20 border border-[#00b14f]/30 text-[#00b14f] flex items-center justify-center">
                     <Bot className="w-4 h-4" />
                   </div>
-                  <div className="bg-gray-100 rounded-full px-3.5 py-2 flex items-center gap-1 border border-gray-200">
-                    <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
-                    <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
-                    <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-bounce"></span>
+                  <div className="bg-[#1c1c24] rounded-full px-4 py-2 flex items-center gap-1.5 border border-white/10">
+                    <span className="w-1.5 h-1.5 bg-[#00b14f] rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+                    <span className="w-1.5 h-1.5 bg-[#00b14f] rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+                    <span className="w-1.5 h-1.5 bg-[#00b14f] rounded-full animate-bounce"></span>
                   </div>
                 </div>
               )}
@@ -389,7 +390,7 @@ export default function ChatbotWidget() {
             </div>
 
             {/* Input Box */}
-            <div className="p-3 border-t border-gray-100 bg-gray-50/80">
+            <div className="p-3.5 border-t border-white/10 bg-[#16161c]/95">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -403,13 +404,13 @@ export default function ChatbotWidget() {
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
                   placeholder="Hỏi về sự kiện, giá vé, ghế trống..."
-                  className="flex-1 px-3.5 py-2 text-xs bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-800 placeholder-gray-400"
+                  className="flex-1 px-4 py-2.5 text-xs bg-[#202028] hover:bg-[#252532] focus:bg-[#202028] rounded-2xl border border-white/10 focus:outline-none focus:border-[#00b14f] focus:ring-1 focus:ring-[#00b14f] text-white placeholder-white/40 transition-all"
                   disabled={isLoading}
                 />
                 <button
                   type="submit"
                   disabled={!inputMessage.trim() || isLoading}
-                  className="p-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm shrink-0"
+                  className="p-2.5 rounded-2xl bg-[#00b14f] text-white hover:bg-[#008a3d] disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-lg shadow-[#00b14f]/25 shrink-0"
                 >
                   <Send className="w-4 h-4" />
                 </button>

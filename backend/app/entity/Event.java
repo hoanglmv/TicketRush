@@ -8,7 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "events")
+@Table(name = "events", indexes = {
+    @Index(name = "idx_event_category", columnList = "category"),
+    @Index(name = "idx_event_status_date", columnList = "status, eventDate"),
+    @Index(name = "idx_event_city", columnList = "city"),
+    @Index(name = "idx_event_is_hot", columnList = "is_hot")
+})
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 @Builder

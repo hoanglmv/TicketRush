@@ -43,7 +43,7 @@ export default function AdminEventEditPage() {
           hot: ev.hot || false,
           images: ev.images || []
         });
-      }).catch(err => {
+      }).catch(() => {
         setError('Không thể tải thông tin sự kiện');
       }).finally(() => setInitialLoading(false));
     }

@@ -57,7 +57,12 @@ python3 tools/ticketbox_crawler/crawler.py --backend-url http://localhost:8080 -
 
 ### Các tham số dòng lệnh:
 - `--source`: Nguồn dữ liệu (`all`, `live`, `curated` - mặc định `all`).
-- `--target`: Hình thức xuất (`both`, `api`, `sql`, `json` - mặc định `both`).
+- `--target`: Hình thức thực thi:
+  - `enrich`: Làm giàu thông tin (mô tả đa tầng, gallery 3-5 ảnh) cho toàn bộ sự kiện hiện có (mặc định).
+  - `both`: Tạo sự kiện mới qua REST API và xuất file SQL.
+  - `api`: Chỉ nạp qua REST API.
+  - `sql`: Chỉ xuất file SQL `crawled_ticketbox_events.sql`.
+  - `json`: Chỉ xuất file JSON `crawled_ticketbox_events.json`.
 - `--backend-url`: Địa chỉ backend TicketRush (mặc định `http://localhost:8080`).
 - `--admin-user`: Tài khoản quản trị (mặc định `admin`).
 - `--admin-pass`: Mật khẩu quản trị (mặc định `admin123`).

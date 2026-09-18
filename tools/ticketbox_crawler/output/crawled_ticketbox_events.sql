@@ -1,12 +1,48 @@
 -- =============================================================================
--- TicketRush - Dữ liệu Crawl tự động từ Ticketbox.vn
--- Ngày tạo: 2026-09-14 21:29:24
+-- TicketRush - Dữ liệu Crawl tự động từ Ticketbox.vn (Bản Đầy Đủ)
+-- Ngày tạo: 2026-09-18 21:03:55
 -- =============================================================================
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
-INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (50, 'Live Concert: ANH TRAI SAY HI 2026 - Đêm 3', 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1600&auto=format&fit=crop&q=80', 'CONCERTS', 'Hà Nội', 'Sân vận động Quốc gia Mỹ Đình', 'Đường Lê Đức Thọ, Phường Mỹ Đình 1, Nam Từ Liêm, Hà Nội', '2026-10-09 21:29:24', '2026-09-12 21:29:24', '2026-10-08 21:29:24', 'Đại nhạc hội bùng nổ của 30 ''Anh Trai Say Hi'' với sân khấu 360 độ hiện đại bậc nhất Việt Nam, hiệu ứng ánh sáng laser đỉnh cao và các bản hit triệu view: Ngáo Ngơ, Cung Đàn Vỡ Đôi, Sao Hạng A, Catch Me If You Can.', 1, 100, 'ON_SALE', 1, NOW()) ON DUPLICATE KEY UPDATE name=VALUES(name);
+INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (50, 'Live Concert: ANH TRAI SAY HI 2026 - Đêm 3', 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1600&auto=format&fit=crop&q=80', 'CONCERTS', 'Hà Nội', 'Sân vận động Quốc gia Mỹ Đình', 'Đường Lê Đức Thọ, Phường Mỹ Đình 1, Nam Từ Liêm, Hà Nội', '2026-10-13 21:03:55', '2026-09-16 21:03:55', '2026-10-12 21:03:55', '🌟 GIỚI THIỆU ĐẠI NHẠC HỘI
+Đại nhạc hội bùng nổ của 30 ''Anh Trai Say Hi'' chính thức quay trở lại Thủ đô Hà Nội với đêm diễn quy mô kỷ lục tại Sân vận động Quốc gia Mỹ Đình. Hệ thống sân khấu 360 độ hiện đại bậc nhất Việt Nam, hiệu ứng ánh sáng laser đỉnh cao và dàn âm thanh L-Acoustics chuẩn quốc tế sẽ mang đến một bữa tiệc âm nhạc mãn nhãn chưa từng có.
 
+🎤 DÀN NGHỆ SĨ BIỂU DIỄN (LINE-UP)
+• HIEUTHUHAI, RHYDER, Anh Tú Atus, Isaac, Negav, Quang Hùng MasterD
+• Song Luân, Gin Tuấn Kiệt, Quân A.P, Đức Phúc, Erik, HURRYKNG
+• Pháp Kiều, WEAN, Captain Boy, Dương Domic, Hùng Huỳnh cùng dàn khách mời đặc biệt bí mật.
+
+⏰ TIMELINE SỰ KIỆN
+• 13:00 - 16:00: Mở quầy đổi vòng tay & Check-in vé Fanzone/SVIP
+• 16:00: Mở cửa khán đài đón khán giả
+• 17:30 - 18:30: Soundcheck đặc quyền dành cho vé SVIP President
+• 19:30: Bắt đầu đêm diễn chính thức
+• 23:00: Kết thúc chương trình & Giao lưu chào tạm biệt
+
+🎟️ QUYỀN LỢI CHI TIẾT CÁC HẠNG VÉ
+• SVIP President (4.500.000đ): Vị trí trung tâm sát sàn diễn, Vé soundcheck trước giờ diễn, Bộ quà tặng Goods độc quyền (Áo thun concert, Lightstick, Photocard 30 Anh Trai có chữ ký), Thảm đỏ & Lối đi riêng Fast-track, Đồ uống Welcome Drink cao cấp.
+• VIP Diamond 1 (2.800.000đ): Ghế ngồi bậc thang tầm nhìn bao quát toàn bộ sân khấu, Túi tote bag, Bộ 5 photocard giới hạn, Lối vào ưu tiên.
+• Fanzone GA Đứng (1.800.000đ): Khu vực đứng gần sân khấu nhất, Vòng tay Fanzone dạ quang, Trải nghiệm hòa mình cùng dàn nghệ sĩ.
+• Khán Đài CAT 1 (1.200.000đ): Ghế ngồi có mái che tại tầng 1 sân vận động, Tầm nhìn chính diện sân khấu.
+• Khán Đài CAT 2 (600.000đ): Ghế ngồi tầng 2 bao quát toàn cảnh đại nhạc hội.
+
+📍 HƯỚNG DẪN DI CHUYỂN & GỬI XE
+• Địa chỉ: Sân vận động Quốc gia Mỹ Đình, Đường Lê Đức Thọ, Phường Mỹ Đình 1, Nam Từ Liêm, Hà Nội.
+• Cổng đón: Cổng A (Khu SVIP/VIP), Cổng B & C (Fanzone & Khán đài CAT 1), Cổng D (Khán đài CAT 2).
+• Gửi xe: Bãi giữ xe Cung Điền kinh Trong nhà & Bãi xe Sân phụ Mỹ Đình (Sức chứa 15.000 xe máy, 2.000 ô tô). Khuyến khích di chuyển bằng taxi, Grab hoặc xe bus số 26, 46, 50, 60B.
+
+⚠️ QUY ĐỊNH AN NINH & VẬT DỤNG CẤM
+• Mỗi tài khoản mua tối đa 04 vé.
+• Độ tuổi: Trẻ em dưới 12 tuổi không được vào khu Fanzone đứng. Trẻ em từ 6-12 tuổi khu khán đài phải có người lớn đi kèm.
+• Nghiêm cấm mang vào: Đồ uống có cồn, chai lọ kim loại/thủy tinh, máy ảnh chuyên nghiệp có ống kính rời tele, flycam/drone, gậy selfie dài, pháo sáng, vũ khí hoặc chất gây cháy nổ.
+• Vui lòng xuất trình mã QR điện tử trên ứng dụng TicketRush hoặc Căn cước công dân khi làm thủ tục check-in.', 1, 100, 'ON_SALE', 1, NOW()) ON DUPLICATE KEY UPDATE description=VALUES(description), banner_url=VALUES(banner_url);
+
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (50, 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (50, 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (50, 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (50, 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (50, 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1600&auto=format&fit=crop&q=80');
 INSERT INTO zones (id, event_id, name, color, price, total_rows, seats_per_row, sort_order) VALUES (200, 50, 'SVIP President', '#e74c3c', 4500000, 4, 20, 1) ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (5000, 200, 'A01', 1, 1, 'AVAILABLE');
@@ -947,8 +983,37 @@ INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (5923, 204, 'J29', 10, 29, 'AVAILABLE');
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (5924, 204, 'J30', 10, 30, 'AVAILABLE');
 
-INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (51, 'ANH TRAI VƯỢT NGÀN CHÔNG GAI - Concert All-Star', 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&auto=format&fit=crop&q=80', 'CONCERTS', 'Hồ Chí Minh', 'Công viên Bờ sông Sài Gòn (Thủ Thiêm)', 'Khu đô thị mới Thủ Thiêm, TP. Thủ Đức, TP. Hồ Chí Minh', '2026-10-19 21:29:24', '2026-09-12 21:29:24', '2026-10-18 21:29:24', 'Đêm hòa nhạc quy tụ các Anh Tài với những màn hòa âm phối khí dân gian đương đại hào hùng: Trống Cơm, Dẫu Có Lỗi Lầm, Mẹ Yêu Con. Trải nghiệm không gian âm nhạc ngoài trời bên sông Sài Gòn rực rỡ.', 1, 80, 'ON_SALE', 1, NOW()) ON DUPLICATE KEY UPDATE name=VALUES(name);
+INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (51, 'ANH TRAI VƯỢT NGÀN CHÔNG GAI - Concert All-Star', 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&auto=format&fit=crop&q=80', 'CONCERTS', 'Hồ Chí Minh', 'Công viên Bờ sông Sài Gòn (Thủ Thiêm)', 'Khu đô thị mới Thủ Thiêm, TP. Thủ Đức, TP. Hồ Chí Minh', '2026-10-23 21:03:55', '2026-09-16 21:03:55', '2026-10-22 21:03:55', '🌟 GIỚI THIỆU CONCERT ALL-STAR
+Đêm hòa nhạc quy tụ 33 Anh Tài với những màn hòa âm phối khí dân gian đương đại hào hùng: Trống Cơm, Dẫu Có Lỗi Lầm, Mẹ Yêu Con, Chiếc Khăn Piêu. Trải nghiệm không gian âm nhạc ngoài trời thoáng đãng bên bờ sông Sài Gòn rực rỡ ánh đèn về đêm.
 
+🎤 DÀN ANH TÀI THAM GIA
+• NSND Tự Long, Bằng Kiều, Tuấn Hưng, Phan Đinh Tùng, Tiến Luật
+• Soobin Hoàng Sơn, BinZ, Cường Seven, Rhymastic, Quốc Thiên, Jun Phạm
+• Kay Trần, Bùi Công Nam, Duy Khánh, BB Trần, S.T Sơn Thạch, Thiên Minh...
+
+⏰ LỊCH TRÌNH CHƯƠNG TRÌNH
+• 14:00: Mở khu vực F&B và gian hàng merchandise lưu niệm
+• 16:30: Bắt đầu làm thủ tục soát vé điện tử qua cổng An ninh
+• 19:00: Khai mạc đêm diễn All-Star Concert
+• 23:30: Pháo hoa nghệ thuật bế mạc
+
+🎟️ HẠNG VÉ & QUYỀN LỢI ĐẶC BIỆT
+• VIP Chông Gai (3.800.000đ): Vị trí ngồi trực diện, Set quà tặng áo thun Gai & Nón concert, Lối đi riêng, Thẻ VIP đeo cổ lưu niệm.
+• Lửa Thiêng Fanzone (2.200.000đ): Khu vực đứng sát sân khấu T-stage, Tiếp cận cự ly gần nhất với các Anh Tài.
+• Khán Đài A (1.500.000đ): Ghế ngồi bậc thang cao, Tầm nhìn toàn cảnh sân khấu và sông Sài Gòn.
+• Khán Đài B (800.000đ): Ghế ngồi tiêu chuẩn, Không gian thoáng mát, Âm thanh sống động.
+
+📍 PHƯƠNG TIỆN DI CHUYỂN & GỬI XE
+• Ban tổ chức bố trí xe Bus Shuttle đưa đón MIỄN PHÍ liên tục từ Bến Bạch Đằng (Quận 1) sang Công viên Bờ sông Thủ Thiêm.
+• Bãi đỗ xe ô tô & xe máy tại Quảng trường Trung tâm Thủ Thiêm (đối diện bến tàu thủy).
+
+⚠️ LƯU Ý KHI THAM GIA
+• Mỗi khách hàng được mang theo quạt cầm tay mini và điện thoại. Cấm tuyệt đối máy quay phim chuyên dụng, gậy chụp hình dài trên 30cm, vũ khí và pháo giấy tự phát.', 1, 80, 'ON_SALE', 1, NOW()) ON DUPLICATE KEY UPDATE description=VALUES(description), banner_url=VALUES(banner_url);
+
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (51, 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (51, 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (51, 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (51, 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=1600&auto=format&fit=crop&q=80');
 INSERT INTO zones (id, event_id, name, color, price, total_rows, seats_per_row, sort_order) VALUES (205, 51, 'VIP Chông Gai', '#e67e22', 3800000, 5, 20, 1) ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (5925, 205, 'A01', 1, 1, 'AVAILABLE');
@@ -1661,8 +1726,32 @@ INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (6623, 208, 'J24', 10, 24, 'AVAILABLE');
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (6624, 208, 'J25', 10, 25, 'AVAILABLE');
 
-INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (52, 'Hà Anh Tuấn Live Concert - Chân Trời Rực Rỡ', 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=1600&auto=format&fit=crop&q=80', 'CONCERTS', 'Ninh Bình', 'Khu di tích Cố đô Hoa Lư', 'Xã Trường Yên, Huyện Hoa Lư, Tỉnh Ninh Bình', '2026-10-29 21:29:24', '2026-09-12 21:29:24', '2026-10-28 21:29:24', 'Đêm nhạc acoustic giữa cảnh sắc kỳ vĩ của Cố đô Hoa Lư cùng huyền thoại âm nhạc Kitaro và dàn nhạc giao hưởng quốc gia. Những giai điệu Xuân Thì, Tháng Mấy Em Nhớ Anh, Bonjour Vietnam.', 1, 50, 'ON_SALE', 1, NOW()) ON DUPLICATE KEY UPDATE name=VALUES(name);
+INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (52, 'Hà Anh Tuấn Live Concert - Chân Trời Rực Rỡ', 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=1600&auto=format&fit=crop&q=80', 'CONCERTS', 'Ninh Bình', 'Khu di tích Cố đô Hoa Lư', 'Xã Trường Yên, Huyện Hoa Lư, Tỉnh Ninh Bình', '2026-11-02 21:03:55', '2026-09-16 21:03:55', '2026-11-01 21:03:55', '🌟 CHÂN TRỜI RỰC RỠ - THE GLORIOUS HORIZON
+Đêm nhạc acoustic giữa cảnh sắc kỳ vĩ của non nước Cố đô Hoa Lư cùng huyền thoại âm nhạc thế giới Kitaro và dàn nhạc giao hưởng quốc gia. Những giai điệu bất hủ: Xuân Thì, Tháng Mấy Em Nhớ Anh, Bonjour Vietnam, Tình Thôi Xót Xa đưa khán giả vào không gian thi ca diễm lệ.
 
+🎤 NGHỆ SĨ & KHÁCH MỜI ĐẶC BIỆT
+• Giọng ca chính: Ca sĩ Hà Anh Tuấn
+• Khách mời huyền thoại quốc tế: Nghệ sĩ New Age Kitaro (Nhật Bản)
+• Dàn nhạc Giao hưởng & Nhạc trưởng Trần Nhật Minh.
+
+⏰ THỜI GIAN BIỂU
+• 16:00: Mở cổng đón khách và khu vực chụp ảnh lưu niệm Non nước Ninh Bình
+• 18:30: Ổn định chỗ ngồi
+• 19:15: Đêm nhạc chính thức bắt đầu
+• 22:45: Bế mạc
+
+🎟️ BẢNG GIÁ VÉ & QUYỀN LỢI
+• Khu Hoa Lư (VVIP - 5.000.000đ): Ghế đệm bọc da cao cấp, Thư cảm ơn viết tay từ Hà Anh Tuấn, Đĩa CD vật lý Chân Trời Rực Rỡ có chữ ký, Tiệc trà đón tiếp thượng khách.
+• Khu Trường Yên (VIP - 3.500.000đ): Ghế ngồi trung tâm, Khăn choàng lụa tơ tằm Ninh Bình, Nước suối khoáng thiên nhiên.
+• Khu Ánh Sao (Standard - 1.800.000đ): Ghế ngồi bậc thang thoáng đãng, Tầm nhìn thẳng hướng sân khấu chính.
+
+📍 DRESSCODE & LƯU Ý
+• Trang phục gợi ý: Tông màu Trắng, Be hoặc Đen sang trọng, thanh lịch.
+• Khuyến nghị mang giày đế thấp hoặc giày thể thao vì địa hình di tích cổ lát đá tự nhiên.', 1, 50, 'ON_SALE', 1, NOW()) ON DUPLICATE KEY UPDATE description=VALUES(description), banner_url=VALUES(banner_url);
+
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (52, 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (52, 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (52, 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1600&auto=format&fit=crop&q=80');
 INSERT INTO zones (id, event_id, name, color, price, total_rows, seats_per_row, sort_order) VALUES (209, 52, 'Khu Hoa Lư (VVIP)', '#9b59b6', 5000000, 4, 15, 1) ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (6625, 209, 'A01', 1, 1, 'AVAILABLE');
@@ -1992,8 +2081,30 @@ INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (6943, 211, 'H19', 8, 19, 'AVAILABLE');
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (6944, 211, 'H20', 8, 20, 'AVAILABLE');
 
-INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (53, 'Vũ. Live Concert - Bảo Tàng Của Nuối Tiếc', 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1600&auto=format&fit=crop&q=80', 'LIVE_MUSIC', 'Hồ Chí Minh', 'Nhà thi đấu Nguyễn Du', '116 Nguyễn Du, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh', '2026-10-02 21:29:24', '2026-09-12 21:29:24', '2026-10-01 21:29:24', 'Hoàng tử Indie Vũ mang đến không gian tự sự ấm áp với album mới ''Bảo Tàng Của Nuối Tiếc'' cùng những bản hit quen thuộc: Lạ Lùng, Bước Qua Mùa Cô Đơn, Đông Kiếm Em, Anh Nhớ Ra.', 0, 50, 'ON_SALE', 1, NOW()) ON DUPLICATE KEY UPDATE name=VALUES(name);
+INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (53, 'Vũ. Live Concert - Bảo Tàng Của Nuối Tiếc', 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1600&auto=format&fit=crop&q=80', 'LIVE_MUSIC', 'Hồ Chí Minh', 'Nhà thi đấu Nguyễn Du', '116 Nguyễn Du, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh', '2026-10-06 21:03:55', '2026-09-16 21:03:55', '2026-10-05 21:03:55', '🌟 BẢO TÀNG CỦA NUỐI TIẾC - TOUR 2026
+''Hoàng tử Indie'' Vũ mang đến không gian tự sự ấm áp và giàu hoài niệm cùng album mới ''Bảo Tàng Của Nuối Tiếc''. Đêm nhạc là những câu chuyện tình dang dở được kể qua âm nhạc mộc mạc: Lạ Lùng, Bước Qua Mùa Cô Đơn, Đông Kiếm Em, Anh Nhớ Ra, Những Lời Hứa Bỏ Quên.
 
+🎤 DÀN NGHỆ SĨ KHÁCH MỜI
+• Nghệ sĩ chính: Vũ. & Band nhạc sống
+• Khách mời đặc biệt: Dear Jane (Hong Kong), Hà Nhi, Madihu.
+
+⏰ THỜI GIAN SỰ KIỆN
+• 17:00: Mở quầy bán Merchandise độc quyền và check-in khán giả
+• 19:30: Khai màn đêm diễn
+• 22:30: Ký tặng poster cho 100 khán giả may mắn
+
+🎟️ CHI TIẾT HẠNG VÉ
+• VIP Nuối Tiếc (2.000.000đ): Ghế ngồi trung tâm hàng đầu, Tặng kèm Đĩa than Vinyl hoặc CD album có chữ ký, Bộ Sticker & Khăn bandana.
+• Khu Tầng Trệt GA (1.200.000đ): Khu đứng tự do gần sát sân khấu acoustic, Trải nghiệm không gian âm nhạc gần gũi nhất.
+• Khán Đài Lầu 1 (750.000đ): Ghế ngồi bậc thang bao quát toàn bộ nhà thi đấu.
+
+📍 ĐỊA ĐIỂM & GỬI XE
+• Địa chỉ: 116 Nguyễn Du, P. Bến Thành, Quận 1 (gần Công viên Tao Đàn).
+• Gửi xe máy tại bãi xe Nhà thi đấu Nguyễn Du hoặc cổng Công viên Tao Đàn đường Huyền Trân Công Chúa.', 0, 50, 'ON_SALE', 1, NOW()) ON DUPLICATE KEY UPDATE description=VALUES(description), banner_url=VALUES(banner_url);
+
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (53, 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (53, 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (53, 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1600&auto=format&fit=crop&q=80');
 INSERT INTO zones (id, event_id, name, color, price, total_rows, seats_per_row, sort_order) VALUES (212, 53, 'VIP Nuối Tiếc', '#1abc9c', 2000000, 4, 20, 1) ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (6945, 212, 'A01', 1, 1, 'AVAILABLE');
@@ -2383,8 +2494,30 @@ INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (7323, 214, 'F24', 6, 24, 'AVAILABLE');
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (7324, 214, 'F25', 6, 25, 'AVAILABLE');
 
-INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (54, 'Đen Vâu - Show Của Đen 2026', 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1600&auto=format&fit=crop&q=80', 'CONCERTS', 'Hà Nội', 'Cung Điền kinh Trong nhà Hà Nội', 'Đường Trần Hữu Dực, Cầu Diễn, Nam Từ Liêm, Hà Nội', '2026-10-24 21:29:24', '2026-09-12 21:29:24', '2026-10-23 21:29:24', 'Liveshow rap mộc mạc và chân thành nhất của Đen cùng ban nhạc Màu Nước và những người bạn: Nấu Ăn Cho Em, Đi Về Nhà, Mang Tiền Về Cho Mẹ, Hai Triệu Năm.', 1, 70, 'ON_SALE', 1, NOW()) ON DUPLICATE KEY UPDATE name=VALUES(name);
+INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (54, 'Đen Vâu - Show Của Đen 2026', 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1600&auto=format&fit=crop&q=80', 'CONCERTS', 'Hà Nội', 'Cung Điền kinh Trong nhà Hà Nội', 'Đường Trần Hữu Dực, Cầu Diễn, Nam Từ Liêm, Hà Nội', '2026-10-28 21:03:55', '2026-09-16 21:03:55', '2026-10-27 21:03:55', '🌟 SHOW CỦA ĐEN 2026 - ĐỒNG ÂM TỤ HỘI
+Liveshow rap mộc mạc và chân thành nhất của Đen cùng ban nhạc Màu Nước và dàn nghệ sĩ thân thiết. Hàng vạn ''Đồng Âm'' cùng hòa giọng trong những bản rap đã khắc sâu vào thanh xuân: Nấu Ăn Cho Em, Đi Về Nhà, Mang Tiền Về Cho Mẹ, Trốn Tìm, Bài Này Chill Phết.
 
+🎤 KHÁCH MỜI ĐỒNG HÀNH
+• Đen Vâu & Ban nhạc Màu Nước
+• Khách mời: Lynk Lee, Kimmese, JustaTee, Vũ, các em nhỏ Điện Biên.
+
+⏰ TIMELINE SHOW DIỄN
+• 14:00: Check-in nhận vòng tay và nón tai bèo ''Đồng Âm''
+• 18:00: Mở cửa khán phòng
+• 19:45: Khai mạc liveshow
+• 23:15: Kết thúc và chụp ảnh kỷ niệm cùng toàn bộ khán giả
+
+🎟️ HẠNG VÉ VÀ QUÀ TẶNG
+• VIP Đồng Âm (2.500.000đ): Vị trí ngồi trung tâm tầng trệt, Nón tai bèo Đen Vâu phiên bản giới hạn, Áo thun Đồng Âm cotton cao cấp, Sổ tay hành trình.
+• Mặt Sân GA (1.400.000đ): Đứng gần sân khấu, hòa mình cùng từng câu rap và nhịp bass.
+• Khán Đài Trên (700.000đ): Ghế ngồi cố định tầng trên, quan sát trọn vẹn biển đèn flash tuyệt đẹp.
+
+❤️ Ý NGHĨA CỘNG ĐỒNG
+Toàn bộ doanh thu từ các vật phẩm lưu niệm bán tại show diễn sẽ được Đen trích chuyển thẳng vào quỹ ''Nuôi Em'' nhằm hỗ trợ bữa ăn và xây trường học cho các em nhỏ vùng cao.', 1, 70, 'ON_SALE', 1, NOW()) ON DUPLICATE KEY UPDATE description=VALUES(description), banner_url=VALUES(banner_url);
+
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (54, 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (54, 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (54, 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1600&auto=format&fit=crop&q=80');
 INSERT INTO zones (id, event_id, name, color, price, total_rows, seats_per_row, sort_order) VALUES (215, 54, 'VIP Đồng Âm', '#f39c12', 2500000, 5, 20, 1) ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (7325, 215, 'A01', 1, 1, 'AVAILABLE');
@@ -2844,8 +2977,31 @@ INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (7773, 217, 'H24', 8, 24, 'AVAILABLE');
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (7774, 217, 'H25', 8, 25, 'AVAILABLE');
 
-INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (55, 'Đại Nhạc Hội Những Thành Phố Mơ Màng - Year End Tour', 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1600&auto=format&fit=crop&q=80', 'CONCERTS', 'Hồ Chí Minh', 'Khu đô thị Vạn Phúc City', 'Quốc lộ 13, Hiệp Bình Phước, TP. Thủ Đức, TP. Hồ Chí Minh', '2026-10-12 21:29:24', '2026-09-12 21:29:24', '2026-10-11 21:29:24', 'Lễ hội âm nhạc Indie và Gen Z lớn nhất năm: Ngọt, Chillies, The Cassette, 7UPPERCUTS, Thịnh Suy. Không gian dã ngoại âm nhạc hoàng hôn ven sông với hàng loạt gian hàng ẩm thực street food.', 0, 50, 'ON_SALE', 1, NOW()) ON DUPLICATE KEY UPDATE name=VALUES(name);
+INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (55, 'Đại Nhạc Hội Những Thành Phố Mơ Màng - Year End Tour', 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1600&auto=format&fit=crop&q=80', 'CONCERTS', 'Hồ Chí Minh', 'Khu đô thị Vạn Phúc City', 'Quốc lộ 13, Hiệp Bình Phước, TP. Thủ Đức, TP. Hồ Chí Minh', '2026-10-16 21:03:55', '2026-09-16 21:03:55', '2026-10-15 21:03:55', '🌟 LỄ HỘI ÂM NHẠC INDIE & GEN Z LỚN NHẤT NĂM
+Những Thành Phố Mơ Màng (NTMM) trở lại với quy mô lễ hội dã ngoại ven sông cực đỉnh. Đắm mình trong hoàng hôn lãng mạn bên sông Sài Gòn, cùng hát vang những giai điệu thanh xuân của dòng nhạc Indie, Pop-Rock Việt Nam.
 
+🎤 DÀN NGHỆ SĨ & BAN NHẠC
+• Chillies, The Cassette, 7UPPERCUTS, Thịnh Suy, Vũ Thanh Vân
+• Hoàng Dũng, Trang, Madihu, marzuz, tlinh và các ban nhạc trẻ triển vọng.
+
+⏰ LỊCH TRÌNH LỄ HỘI
+• 14:00: Mở cửa khu dã ngoại Camping & Hội chợ ẩm thực Street Food
+• 15:30: Sân khấu phụ Acoustic & Giao lưu nghệ sĩ
+• 17:00: Khai mạc Sân khấu chính (Main Stage) đón hoàng hôn
+• 23:00: Đêm diễn bế mạc
+
+🎟️ CÁC HẠNG VÉ
+• VIP Camping & Lounge (1.600.000đ): Khu vực bạt trải và lều trại ven sông, Tặng set picnic cao cấp kèm nước ngọt và bia thủ công, Lối check-in ưu tiên riêng biệt.
+• General Admission (GA - 750.000đ): Tự do trải thảm cỏ trên toàn bộ khuôn viên lễ hội.
+• Early Bird (550.000đ): Số lượng giới hạn dành cho các ''Cư Dân'' mua sớm.
+
+📍 ĐỊA ĐIỂM & BÃI XE
+• Khu đô thị Vạn Phúc City, Quốc lộ 13, TP. Thủ Đức.
+• Bãi giữ xe rộng hơn 20.000m² tại khu vực Bến du thuyền Dragon Bay.', 0, 50, 'ON_SALE', 1, NOW()) ON DUPLICATE KEY UPDATE description=VALUES(description), banner_url=VALUES(banner_url);
+
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (55, 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (55, 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (55, 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&auto=format&fit=crop&q=80');
 INSERT INTO zones (id, event_id, name, color, price, total_rows, seats_per_row, sort_order) VALUES (218, 55, 'VIP Camping & Lounge', '#e84393', 1600000, 4, 20, 1) ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (7775, 218, 'A01', 1, 1, 'AVAILABLE');
@@ -3275,8 +3431,29 @@ INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8193, 220, 'E19', 5, 19, 'AVAILABLE');
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8194, 220, 'E20', 5, 20, 'AVAILABLE');
 
-INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (56, 'Kịch Sân Khấu IDECAF: Ngày Xửa Ngày Xưa 35 - Hoàng Tử Gấu', 'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=1600&auto=format&fit=crop&q=80', 'THEATER', 'Hồ Chí Minh', 'Nhà hát Bến Thành', 'Số 6 Mạc Đĩnh Chi, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh', '2026-09-28 21:29:24', '2026-09-12 21:29:24', '2026-09-27 21:29:24', 'Vở kịch thiếu nhi kinh điển gắn liền với tuổi thơ nhiều thế hệ: NSƯT Thành Lộc, Hữu Châu, Bạch Long, Thanh Thủy, Hoàng Trinh trong tạo hình cổ tích vui nhộn và thông điệp nhân văn.', 0, 50, 'ON_SALE', 0, NOW()) ON DUPLICATE KEY UPDATE name=VALUES(name);
+INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (56, 'Kịch Sân Khấu IDECAF: Ngày Xửa Ngày Xưa 35 - Hoàng Tử Gấu', 'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=1600&auto=format&fit=crop&q=80', 'THEATER', 'Hồ Chí Minh', 'Nhà hát Bến Thành', 'Số 6 Mạc Đĩnh Chi, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh', '2026-10-02 21:03:55', '2026-09-16 21:03:55', '2026-10-01 21:03:55', '🌟 KỊCH THIẾU NHI KINH ĐIỂN - NGÀY XỬA NGÀY XƯA 35
+Thương hiệu kịch thiếu nhi ăn khách nhất lịch sử sân khấu kịch miền Nam trở lại với số 35: ''Hoàng Tử Gấu và Khu Rừng Phép Thuật''. Cốt truyện hài hước, phục trang lộng lẫy và những bài học nhân văn sâu sắc về tình bạn, lòng dũng cảm.
 
+🎭 NGHỆ SĨ THAM GIA
+• NSND Hữu Châu, Bạch Long, Thanh Thủy, Hoàng Trinh, Hương Giang
+• Đại Nghĩa, Đình Toàn, Lê Khánh, Mỹ Duyên cùng vũ đoàn Tuổi Ngọc.
+
+⏰ THỜI GIAN BIỂU DIỄN
+• Suất sáng: 09:00 - 11:15
+• Suất tối: 20:00 - 22:15
+• Khán giả vui lòng có mặt trước giờ diễn 20 phút để ổn định chỗ ngồi.
+
+🎟️ GIÁ VÉ & VỊ TRÍ GHẾ
+• Ghế VIP Tầng Trệt (450.000đ): Các hàng ghế A-E trung tâm, Tầm nhìn thẳng sát sân khấu, Tặng bóng bay nghệ thuật cho bé.
+• Ghế Tiêu Chuẩn Tầng Trệt (320.000đ): Hàng ghế F-L góc nhìn bao quát.
+• Khán Đài Lầu (220.000đ): Ghế tầng lầu nhìn xuống, Phù hợp nhóm gia đình đông người.
+
+⚠️ QUY ĐỊNH NHÀ HÁT
+• Mỗi vé áp dụng cho 1 ghế ngồi (kể cả trẻ nhỏ).
+• Nghiêm cấm livestream, quay phim toàn bộ buổi diễn để bảo hộ bản quyền tác phẩm.', 0, 50, 'ON_SALE', 0, NOW()) ON DUPLICATE KEY UPDATE description=VALUES(description), banner_url=VALUES(banner_url);
+
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (56, 'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (56, 'https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?w=1600&auto=format&fit=crop&q=80');
 INSERT INTO zones (id, event_id, name, color, price, total_rows, seats_per_row, sort_order) VALUES (221, 56, 'Ghế VIP Tầng Trệt', '#e74c3c', 450000, 6, 15, 1) ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8195, 221, 'A01', 1, 1, 'AVAILABLE');
@@ -3628,8 +3805,26 @@ INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8535, 223, 'F17', 6, 17, 'AVAILABLE');
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8536, 223, 'F18', 6, 18, 'AVAILABLE');
 
-INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (57, 'Sân Khấu Kịch Thiên Đăng: Vở ''13 Đức Thầy''', 'https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?w=1600&auto=format&fit=crop&q=80', 'THEATER', 'Hồ Chí Minh', 'Sân khấu Kịch Thiên Đăng', 'Tầng 2, 62 Trần Quang Khải, Tân Định, Quận 1, TP. Hồ Chí Minh', '2026-09-26 21:29:24', '2026-09-12 21:29:24', '2026-09-25 21:29:24', 'Tác phẩm kịch tâm lý xã hội sâu sắc do NSƯT Thành Lộc đạo diễn và diễn xuất chính. Câu chuyện về niềm tin, sự thức tỉnh và lòng nhân ái trong xã hội hiện đại.', 0, 50, 'ON_SALE', 0, NOW()) ON DUPLICATE KEY UPDATE name=VALUES(name);
+INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (57, 'Sân Khấu Kịch Thiên Đăng: Vở ''13 Đức Thầy''', 'https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?w=1600&auto=format&fit=crop&q=80', 'THEATER', 'Hồ Chí Minh', 'Sân khấu Kịch Thiên Đăng', 'Tầng 2, 62 Trần Quang Khải, Tân Định, Quận 1, TP. Hồ Chí Minh', '2026-09-30 21:03:55', '2026-09-16 21:03:55', '2026-09-29 21:03:55', '🌟 TÁC PHẨM KỊCH TÂM LÝ XÃ HỘI CHUYÊN SÂU
+Vở kịch đỉnh cao do NSƯT Thành Lộc dàn dựng và đóng vai trò linh hồn của tác phẩm. Câu chuyện xoay quanh đức tin, sự tha thứ và bản ngã của con người trước những cám dỗ danh vọng trong xã hội đương thời.
 
+🎭 DÀN DIỄN VIÊN GẠO CỘI
+• NSƯT Thành Lộc, NSND Kim Xuân, Hữu Châu, Phi Phụng
+• Tuấn Khôi, Trương Hạ, Lương Thế Thành, Vân Trang.
+
+⏰ LỊCH DIỄN
+• Khai màn: Đúng 20:00 tối thứ Bảy & Chủ Nhật hàng tuần
+• Thời lượng: 140 phút (có nghỉ giải lao 10 phút giữa màn).
+
+🎟️ CÁC HẠNG VÉ
+• Hàng Ghế VIP Trung Tâm (500.000đ): Ghế sofa êm ái hàng A-C, Tặng nước suối và tập san nghệ thuật Thiên Đăng.
+• Hàng Ghế Tiêu Chuẩn (350.000đ): Ghế ngồi cao cấp với độ dốc chuẩn tầm nhìn không bị che chắn.
+
+📍 LƯU Ý KHI XEM KỊCH
+• Sân khấu đóng cửa đúng 20:00, khán giả đến trễ vui lòng đợi giải lao mới được vào khán phòng. Vui lòng chuyển điện thoại sang chế độ im lặng.', 0, 50, 'ON_SALE', 0, NOW()) ON DUPLICATE KEY UPDATE description=VALUES(description), banner_url=VALUES(banner_url);
+
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (57, 'https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (57, 'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=1600&auto=format&fit=crop&q=80');
 INSERT INTO zones (id, event_id, name, color, price, total_rows, seats_per_row, sort_order) VALUES (224, 57, 'Hàng Ghế VIP Trung Tâm', '#9b59b6', 500000, 4, 12, 1) ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8537, 224, 'A01', 1, 1, 'AVAILABLE');
@@ -3681,7 +3876,7 @@ INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8583, 224, 'D11', 4, 11, 'AVAILABLE');
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8584, 224, 'D12', 4, 12, 'AVAILABLE');
 
-INSERT INTO zones (id, event_id, name, color, price, total_rows, seats_per_row, sort_order) VALUES (225, 57, 'Hàng Ghế Tiêu Chuẩn', '#34495e', 350000, 6, 15, 2) ON DUPLICATE KEY UPDATE name=VALUES(name);
+INSERT INTO zones (id, event_id, name, color, price, total_rows, seats_per_row, sort_order) VALUES (225, 57, 'Hàng Ghế Tiêu Chuẩn', '#3498db', 350000, 6, 15, 2) ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8585, 225, 'A01', 1, 1, 'AVAILABLE');
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8586, 225, 'A02', 1, 2, 'AVAILABLE');
@@ -3774,8 +3969,24 @@ INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8673, 225, 'F14', 6, 14, 'AVAILABLE');
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8674, 225, 'F15', 6, 15, 'AVAILABLE');
 
-INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (58, 'GENfest 2026 - Lễ Hội Âm Nhạc Đa Giác Quan', 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&auto=format&fit=crop&q=80', 'CONCERTS', 'Hồ Chí Minh', 'The Global City', 'Đỗ Xuân Hợp, Phường An Phú, TP. Thủ Đức, TP. Hồ Chí Minh', '2026-10-16 21:29:24', '2026-09-12 21:29:24', '2026-10-15 21:29:24', 'Lễ hội văn hóa và âm nhạc đa giác quan với sự góp mặt của các nghệ sĩ quốc tế K-Pop và dàn sao Việt Nam: HIEUTHUHAI, MONO, Wren Evans, tlinh, GREY D.', 1, 60, 'ON_SALE', 1, NOW()) ON DUPLICATE KEY UPDATE name=VALUES(name);
+INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (58, 'GENfest 2026 - Lễ Hội Âm Nhạc Đa Giác Quan', 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&auto=format&fit=crop&q=80', 'CONCERTS', 'Hồ Chí Minh', 'The Global City', 'Đỗ Xuân Hợp, Phường An Phú, TP. Thủ Đức, TP. Hồ Chí Minh', '2026-10-20 21:03:55', '2026-09-16 21:03:55', '2026-10-19 21:03:55', '🌟 ĐẠI NHẠC HỘI ĐA GIÁC QUAN DÀNH CHO GIỚI TRẺ
+GENfest kết hợp âm nhạc đỉnh cao, nghệ thuật sắp đặt ánh sáng tương tác và văn hóa đường phố. Sân khấu nhạc nước The Global City với cột nước cao hơn 60m cùng hệ thống laser đa chiều.
 
+🎤 DÀN LINE-UP SIÊU KHỦNG
+• Nghệ sĩ quốc tế: Ngôi sao K-Pop ZICO, HyunA
+• Sao Việt: HIEUTHUHAI, MONO, Wren Evans, Low G, tlinh, GREY D, Pháo.
+
+⏰ THỜI GIAN
+• 10:00: Mở cửa khu trải nghiệm văn hóa Game & Thời trang đường phố
+• 17:00 - 23:30: Đại nhạc hội bùng nổ không ngừng nghỉ.
+
+🎟️ HẠNG VÉ
+• VIP Lounge & Fast Track (2.500.000đ): Khán đài nâng cao, Free-flow bia và nước uống, Thảm đỏ riêng không xếp hàng.
+• Mặt Sân GA (950.000đ): Đứng quẩy hết mình sát sàn diễn nhạc nước.', 1, 60, 'ON_SALE', 1, NOW()) ON DUPLICATE KEY UPDATE description=VALUES(description), banner_url=VALUES(banner_url);
+
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (58, 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (58, 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (58, 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&auto=format&fit=crop&q=80');
 INSERT INTO zones (id, event_id, name, color, price, total_rows, seats_per_row, sort_order) VALUES (226, 58, 'VIP Lounge & Fast Track', '#e17055', 2500000, 4, 20, 1) ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8675, 226, 'A01', 1, 1, 'AVAILABLE');
@@ -4062,9 +4273,26 @@ INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8953, 227, 'H24', 8, 24, 'AVAILABLE');
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8954, 227, 'H25', 8, 25, 'AVAILABLE');
 
-INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (59, 'Triển Lãm Đa Giác Quan Van Gogh & Monet Immersive', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=1600&auto=format&fit=crop&q=80', 'EXPERIENCE', 'Hồ Chí Minh', 'Trung tâm Thương mại Gigamall', '240-242 Phạm Văn Đồng, Hiệp Bình Chánh, Thủ Đức, TP. Hồ Chí Minh', '2026-09-24 21:29:24', '2026-09-12 21:29:24', '2026-09-23 21:29:24', 'Công nghệ trình chiếu ánh sáng 360 độ và thực tế ảo tái hiện hàng trăm tuyệt phẩm hội họa kinh điển thế giới. Đắm chìm trong bức tranh Đêm Đầy Sao (The Starry Night) sống động.', 0, 50, 'ON_SALE', 0, NOW()) ON DUPLICATE KEY UPDATE name=VALUES(name);
+INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (59, 'Triển Lãm Đa Giác Quan Van Gogh & Monet Immersive', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=1600&auto=format&fit=crop&q=80', 'EXPERIENCE', 'Hồ Chí Minh', 'Trung tâm Thương mại Gigamall', '240-242 Phạm Văn Đồng, Hiệp Bình Chánh, Thủ Đức, TP. Hồ Chí Minh', '2026-09-28 21:03:55', '2026-09-16 21:03:55', '2026-09-27 21:03:55', '🌟 KHÔNG GIAN HỘI HỌA TƯƠNG TÁC ĐỈNH CAO THẾ GIỚI
+Công nghệ trình chiếu đa giác quan 360 độ kết hợp thực tế ảo (VR) tái hiện hàng trăm kiệt tác kinh điển của Vincent van Gogh và Claude Monet. Đắm chìm trong căn phòng Đêm Đầy Sao (The Starry Night) và Khu Vườn Hoa Súng lung linh sắc màu.
 
-INSERT INTO zones (id, event_id, name, color, price, total_rows, seats_per_row, sort_order) VALUES (228, 59, 'Vé VIP (Bao gồm trải nghiệm VR & Quà lưu niệm)', '#fdcb6e', 450000, 5, 15, 1) ON DUPLICATE KEY UPDATE name=VALUES(name);
+🖼️ CÁC KHU TRẢI NGHIỆM ĐẶC SẮC
+• Phòng chiếu 360 độ tương tác ánh sáng và âm nhạc cổ điển
+• Hành lang hoa hướng dương rực rỡ check-in sống ảo
+• Phòng trải nghiệm Thực tế ảo VR bước chân vào thế giới tranh vẽ
+• Xưởng vẽ tương tác dành cho thiếu nhi và gia đình.
+
+⏰ GIỜ MỞ CỬA
+• 09:30 - 21:30 hàng ngày (kể cả thứ Bảy, Chủ Nhật và ngày Lễ).
+
+🎟️ GIÁ VÉ THAM QUAN
+• Vé VIP (450.000đ): Trọn gói bao gồm vé vào cổng, Trải nghiệm kính thực tế ảo VR, Quà tặng túi tote hoặc sổ tay Van Gogh độc quyền.
+• Vé Tiêu Chuẩn Người Lớn (250.000đ): Vé vào cổng tham quan toàn bộ khu vực.
+• Vé Trẻ Em & Sinh Viên (180.000đ): Áp dụng cho trẻ em dưới 1m3 hoặc sinh viên có thẻ.', 0, 50, 'ON_SALE', 0, NOW()) ON DUPLICATE KEY UPDATE description=VALUES(description), banner_url=VALUES(banner_url);
+
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (59, 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (59, 'https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?w=1600&auto=format&fit=crop&q=80');
+INSERT INTO zones (id, event_id, name, color, price, total_rows, seats_per_row, sort_order) VALUES (228, 59, 'Vé VIP (Trải nghiệm VR & Quà lưu niệm)', '#fdcb6e', 450000, 5, 15, 1) ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8955, 228, 'A01', 1, 1, 'AVAILABLE');
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (8956, 228, 'A02', 1, 2, 'AVAILABLE');
@@ -4428,8 +4656,20 @@ INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (9308, 230, 'F19', 6, 19, 'AVAILABLE');
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (9309, 230, 'F20', 6, 20, 'AVAILABLE');
 
-INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (60, 'VBA 2026: Chung Kết Saigon Heat vs Hanoi Buffaloes', 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1600&auto=format&fit=crop&q=80', 'SPORTS', 'Hồ Chí Minh', 'Nhà thi đấu CIS (Trường Quốc tế Canada)', 'Đường 23, Phú Mỹ Hưng, Phường Tân Phú, Quận 7, TP. Hồ Chí Minh', '2026-10-04 21:29:24', '2026-09-12 21:29:24', '2026-10-03 21:29:24', 'Trận bóng rổ rực lửa tranh cúp vô địch VBA 2026 giữa hai đại kình địch bóng rổ Việt Nam: Saigon Heat với dàn ngoại binh thượng thừa đối đầu Hanoi Buffaloes.', 0, 50, 'ON_SALE', 1, NOW()) ON DUPLICATE KEY UPDATE name=VALUES(name);
+INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (60, 'VBA 2026: Chung Kết Saigon Heat vs Hanoi Buffaloes', 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1600&auto=format&fit=crop&q=80', 'SPORTS', 'Hồ Chí Minh', 'Nhà thi đấu CIS (Trường Quốc tế Canada)', 'Đường 23, Phú Mỹ Hưng, Phường Tân Phú, Quận 7, TP. Hồ Chí Minh', '2026-10-08 21:03:55', '2026-09-16 21:03:55', '2026-10-07 21:03:55', '🌟 TRẬN CHUNG KẾT KINH ĐIỂN BÓNG RỔ VIỆT NAM VBA 2026
+Cuộc chạm trán rực lửa tranh cúp vô địch VBA 2026 giữa hai đại kình địch bóng rổ Việt Nam: ''Ông vua miền Nam'' Saigon Heat đối đầu ''Chiến binh Thủ đô'' Hanoi Buffaloes. Những pha úp rổ sấm sét, ném ba điểm nghẹt thở và màn cổ vũ sôi động từ dàn vũ công Heat Girls.
 
+⏰ THỜI GIAN THI ĐẤU
+• 17:30: Mở cửa khán đài và hoạt động ném bóng trúng quà tại sảnh
+• 19:00: Tip-off trận chung kết lượt về.
+
+🎟️ HẠNG VÉ & QUYỀN LỢI
+• Courtside VIP (1.800.000đ): Ghế sofa sát mép sân thi đấu, Phục vụ đồ uống nhẹ và thức ăn nhẹ tại chỗ, Giao lưu chụp ảnh cùng các cầu thủ sau trận.
+• Khán Đài A (600.000đ): Ghế ngồi trực diện bảng rổ hai đầu.
+• Khán Đài B (300.000đ): Ghế ngồi tầng trên không khí náo nhiệt.', 0, 50, 'ON_SALE', 1, NOW()) ON DUPLICATE KEY UPDATE description=VALUES(description), banner_url=VALUES(banner_url);
+
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (60, 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (60, 'https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?w=1600&auto=format&fit=crop&q=80');
 INSERT INTO zones (id, event_id, name, color, price, total_rows, seats_per_row, sort_order) VALUES (231, 60, 'Courtside VIP (Sát sân)', '#d63031', 1800000, 2, 20, 1) ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (9310, 231, 'A01', 1, 1, 'AVAILABLE');
@@ -4719,8 +4959,23 @@ INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (9588, 233, 'F19', 6, 19, 'AVAILABLE');
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (9589, 233, 'F20', 6, 20, 'AVAILABLE');
 
-INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (61, 'VPBank VnExpress Marathon Ho Chi Minh City Midnight 2026', 'https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?w=1600&auto=format&fit=crop&q=80', 'SPORTS', 'Hồ Chí Minh', 'Sân vận động Hoa Lư & Cầu Thủ Thiêm 2', 'Số 2 Đinh Tiên Hoàng, Phường Đa Kao, Quận 1, TP. Hồ Chí Minh', '2026-11-03 21:29:24', '2026-09-12 21:29:24', '2026-11-02 21:29:24', 'Giải chạy đêm quy mô 11.000 vận động viên ngắm vẻ đẹp lung linh của TP.HCM về đêm. Các cự ly 5km, 10km, 21km và 42km tiêu chuẩn quốc tế AIMS.', 0, 50, 'ON_SALE', 0, NOW()) ON DUPLICATE KEY UPDATE name=VALUES(name);
+INSERT INTO events (id, name, banner_url, category, city, venue, address, event_date, sale_start_time, sale_end_time, description, queue_enabled, queue_batch_size, status, is_hot, created_at) VALUES (61, 'VPBank VnExpress Marathon Ho Chi Minh City Midnight 2026', 'https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?w=1600&auto=format&fit=crop&q=80', 'SPORTS', 'Hồ Chí Minh', 'Sân vận động Hoa Lư & Cầu Thủ Thiêm 2', 'Số 2 Đinh Tiên Hoàng, Phường Đa Kao, Quận 1, TP. Hồ Chí Minh', '2026-11-07 21:03:55', '2026-09-16 21:03:55', '2026-11-06 21:03:55', '🌟 GIẢI CHẠY ĐÊM LỚN NHẤT VIỆT NAM - QUY MÔ 11.000 RUNNERS
+Khám phá Sài Gòn về đêm với cung đường chạy độc đáo qua hàng loạt địa danh biểu tượng: Nhà thờ Đức Bà, Dinh Độc Lập, Bến Bạch Đằng và Cầu Ba Son (Thủ Thiêm 2) lộng lẫy ánh đèn. Cung đường đạt chuẩn đo đạc quốc tế AIMS.
 
+🏃‍♂️ CỰ LY THI ĐẤU
+• 42km Full Marathon (Xuất phát: 00:00 đêm)
+• 21km Half Marathon (Xuất phát: 01:15 sáng)
+• 10km Khám phá (Xuất phát: 02:30 sáng)
+• 5km Phong trào (Xuất phát: 03:00 sáng).
+
+🎟️ BỘ VẬT PHẨM (RACEKIT) BAO GỒM
+• Áo đấu thể thao Singlet/T-shirt cao cấp
+• Mũ chạy dạ quang, Túi rút tiện dụng
+• BIB gắn chip định vị thời gian điện tử
+• Huy chương Finisher đúc đồng nguyên khối khi hoàn thành cự ly trong cutoff time.', 0, 50, 'ON_SALE', 0, NOW()) ON DUPLICATE KEY UPDATE description=VALUES(description), banner_url=VALUES(banner_url);
+
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (61, 'https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?w=1600&auto=format&fit=crop&q=80');
+INSERT IGNORE INTO event_images (event_id, image_url) VALUES (61, 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1600&auto=format&fit=crop&q=80');
 INSERT INTO zones (id, event_id, name, color, price, total_rows, seats_per_row, sort_order) VALUES (234, 61, 'BIB Full Marathon (42km)', '#d63031', 1400000, 4, 25, 1) ON DUPLICATE KEY UPDATE name=VALUES(name);
 
 INSERT IGNORE INTO seats (id, zone_id, seat_number, seat_row, seat_col, status) VALUES (9590, 234, 'A01', 1, 1, 'AVAILABLE');
