@@ -67,19 +67,19 @@ spring:
 # JWT Configuration
 app:
   jwt:
-    secret: TicketRushSuperSecretKeyForJWTTokenGeneration2026MustBeAtLeast256Bits
-    expiration-ms: 86400000       # 24 hours
-    refresh-expiration-ms: 604800000  # 7 days
+    secret: ${JWT_SECRET:TicketRushSuperSecretKeyForJWTTokenGeneration2026MustBeAtLeast256Bits}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}       # 24 hours
+    refresh-expiration-ms: ${JWT_REFRESH_EXPIRATION_MS:604800000}  # 7 days
 
   # Seat lock timeout in minutes
-  seat-lock-timeout-minutes: 10
+  seat-lock-timeout-minutes: ${SEAT_LOCK_TIMEOUT_MINUTES:10}
 
   # Virtual queue default batch size
-  queue-default-batch-size: 50
+  queue-default-batch-size: ${QUEUE_DEFAULT_BATCH_SIZE:50}
 
   # CORS
   cors:
-    allowed-origins: http://localhost:5173
+    allowed-origins: ${APP_CORS_ALLOWED_ORIGINS:http://localhost:5173,https://*.vercel.app}
 
   # LLM API Configuration for AI Agents
   llm:

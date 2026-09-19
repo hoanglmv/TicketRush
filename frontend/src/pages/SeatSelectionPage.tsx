@@ -46,8 +46,12 @@ export default function SeatSelectionPage() {
   }, [eventId]);
 
   useEffect(() => {
+    const wsUrl = import.meta.env.VITE_API_URL
+      ? `${import.meta.env.VITE_API_URL.replace(/\/+$/, '')}/ws`
+      : '/ws';
+
     const client = new Client({
-      webSocketFactory: () => new SockJS('/ws'),
+      webSocketFactory: () => new SockJS(wsUrl),
       reconnectDelay: 5000,
       onConnect: () => {
         client.subscribe(`/topic/event/${eventId}/seats`, (message) => {
