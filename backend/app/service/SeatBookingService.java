@@ -1,5 +1,6 @@
 package app.service;
 
+import app.dto.DynamicQRResponse;
 import app.dto.SeatStatusUpdate;
 import app.dto.TicketResponse;
 import app.entity.Event;
@@ -195,6 +196,44 @@ public class SeatBookingService {
     public TicketResponse getTicketById(Long userId, Long ticketId) {
         Ticket ticket = ticketRepository.findByIdAndUserId(ticketId, userId)
                 .orElseThrow(() -> new ResourceNotFoundException("Ticket not found"));
+        return toTicketResponse(ticket);
+    }
+
+    /**
+     * Sinh mã QR động (TOTP) thời gian thực có hiệu lực 30s chống chụp màn hình.
+     */
+    public DynamicQRResponse getDynamicQR(Long userId, Long ticketId) {
+        Ticket ticket = ticketRepository.findByIdAndUserId(ticketId, userId)
+                .orElseThrow(() -> new ResourceNotFoundException("Ticket not found"));
+
+        if (ticket.getStatus() != TicketStatus.PAID && ticket.getStatus() != TicketStatus.CHECKED_IN) {
+            throw new IllegalStateException("Chỉ vé đã thanh toán thành công mới có mã QR vào cổng.");
+        }
+
+        return qrCodeService.generateDynamicQR(ticket);
+    }
+
+    /**
+     * Quét và xác thực mã QR vé tại cổng sự kiện (Check-in).
+     */
+    @Transactional
+    public TicketResponse checkinTicket(String qrPayload, String staffUsername) {
+        Long ticketId = qrCodeService.verifyDynamicQR(qrPayload);
+        Ticket ticket = ticketRepository.findById(ticketId)
+                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy thông tin vé ID: " + ticketId));
+
+        if (ticket.getStatus() == TicketStatus.CHECKED_IN) {
+            throw new IllegalStateException("Vé này đã được check-in vào cổng trước đó!");
+        }
+
+        if (ticket.getStatus() != TicketStatus.PAID) {
+            throw new IllegalStateException("Vé chưa hoàn tất thanh toán (Trạng thái: " + ticket.getStatus() + ")");
+        }
+
+        ticket.setStatus(TicketStatus.CHECKED_IN);
+        ticketRepository.save(ticket);
+        log.info("Ticket #{} checked-in successfully by staff '{}'", ticketId, staffUsername);
+
         return toTicketResponse(ticket);
     }
 

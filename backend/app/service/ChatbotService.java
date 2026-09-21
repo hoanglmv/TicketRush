@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import app.dto.ChatResponse;
 import app.entity.Event;
+import app.entity.Seat;
 import app.entity.Zone;
 import app.enums.EventStatus;
 import app.enums.SeatStatus;
@@ -129,18 +130,22 @@ public class ChatbotService {
         res.setRagScore(topScore);
 
         // Stream telemetry event to Kafka for real-time async monitoring
-        eventProducerService.sendAgentTelemetry(AgentTelemetryEvent.builder()
-                .logId(logId)
-                .userQuery(userMsg)
-                .replySnippet(res.getReply() != null && res.getReply().length() > 100 ? res.getReply().substring(0, 100) : res.getReply())
-                .latencyMs(totalTime)
-                .retrievalTimeMs(retrievalTime)
-                .similarityScore(topScore)
-                .ragSource(ragSource)
-                .modelUsed(modelUsed)
-                .status(status)
-                .timestamp(LocalDateTime.now())
-                .build());
+        try {
+            eventProducerService.sendAgentTelemetry(AgentTelemetryEvent.builder()
+                    .logId(logId)
+                    .userQuery(userMsg)
+                    .replySnippet(res.getReply() != null && res.getReply().length() > 100 ? res.getReply().substring(0, 100) : res.getReply())
+                    .latencyMs(totalTime)
+                    .retrievalTimeMs(retrievalTime)
+                    .similarityScore(topScore)
+                    .ragSource(ragSource)
+                    .modelUsed(modelUsed)
+                    .status(status)
+                    .timestamp(LocalDateTime.now().toString())
+                    .build());
+        } catch (Throwable t) {
+            log.warn("Non-critical: Kafka telemetry event streaming skipped: {}", t.getMessage());
+        }
 
         return res;
     }
@@ -258,24 +263,26 @@ public class ChatbotService {
     private ChatResponse handleRuleBasedIntent(String msg, List<QdrantVectorService.ScoredChunk> ragChunks) {
         String lower = msg.toLowerCase();
 
-        // 1. Chào hỏi
-        if (matchesAny(lower, "chào", "xin chào", "hello", "hi", "hey", "halo", "alo")) {
+        // 1. Chào hỏi ngắn
+        if (isGreeting(lower)) {
             return buildWelcomeResponse();
         }
 
-        // 2. Tra cứu RAG Knowledge (Điều khoản, Cửa vào, Bãi gửi xe, Quy định cấm, Vibe sự kiện)
+        // 2. Agentic Tool Calling: Tự động tìm và chọn ghế theo yêu cầu (Autonomous Booking Tool)
+        if (matchesAny(lower, "đặt vé", "giữ chỗ", "mua vé", "chọn vé", "chọn ghế", "book vé", "tìm vé")) {
+            ChatResponse toolResult = executeAutonomousBookingTool(lower);
+            if (toolResult != null) {
+                return toolResult;
+            }
+        }
+
+        // 3. Tra cứu RAG Knowledge từ Vector DB (Sự kiện, địa điểm, quy định, FAQ, cẩm nang)
         if (ragChunks != null && !ragChunks.isEmpty()) {
             QdrantVectorService.ScoredChunk topChunk = ragChunks.get(0);
-            if (topChunk.getScore() >= 0.35 && matchesAny(lower, 
-                    "quy định", "cấm", "gửi xe", "xe buýt", "xe bus", "cửa vào", "cổng", 
-                    "mỹ đình", "quân khu 7", "hàng đẫy", "hòa bình", "lâm viên", "đổi vé", 
-                    "sang tên", "hoàn vé", "chuyển nhượng", "qr", "check-in", "dress code", 
-                    "trang phục", "acoustic", "rock", "rap", "lãng mạn", "vibe", "trẻ em", 
-                    "gia đình", "mang gì", "máy ảnh", "nước", "hết pin", "hỏng màn hình")) {
-                
+            if (topChunk.getScore() >= 0.35) {
                 List<Event> matched = findRelevantEvents(lower);
                 return ChatResponse.builder()
-                        .reply("📖 **Cẩm nang & Quy định TicketRush:**\n\n" + topChunk.getText())
+                        .reply("📖 **Thông tin từ Hệ thống TicketRush:**\n\n" + topChunk.getText())
                         .events(matched.isEmpty() ? null : matched.stream().map(this::toCardDto).limit(2).toList())
                         .suggestions(List.of("Cách đặt vé sự kiện", "Chính sách chuyển nhượng vé", "Sự kiện Hot hôm nay"))
                         .build();
@@ -443,11 +450,21 @@ public class ChatbotService {
         List<Event> all = eventRepository.findAll();
         String q = query.toLowerCase();
 
+        // 1. Kiểm tra nếu query có chứa ID sự kiện (vd: "sự kiện 1", "event 1", "id 1", "sự kiện #1")
+        for (Event e : all) {
+            if (q.contains("sự kiện " + e.getId()) || q.contains("sự kiện #" + e.getId()) ||
+                q.contains("event " + e.getId()) || q.contains("event #" + e.getId()) ||
+                q.contains("id " + e.getId())) {
+                return List.of(e);
+            }
+        }
+
+        // 2. Kiểm tra tên sự kiện, địa điểm hoặc danh mục
         return all.stream()
-                .filter(e -> e.getName().toLowerCase().contains(q) ||
-                        (e.getVenue() != null && e.getVenue().toLowerCase().contains(q)) ||
-                        (e.getCategory() != null && e.getCategory().toLowerCase().contains(q)) ||
-                        (e.getDescription() != null && e.getDescription().toLowerCase().contains(q)))
+                .filter(e -> q.contains(e.getName().toLowerCase()) ||
+                        e.getName().toLowerCase().contains(q) ||
+                        (e.getVenue() != null && (q.contains(e.getVenue().toLowerCase()) || e.getVenue().toLowerCase().contains(q))) ||
+                        (e.getCategory() != null && q.contains(e.getCategory().toLowerCase())))
                 .limit(5)
                 .toList();
     }
@@ -479,6 +496,93 @@ public class ChatbotService {
                 .status(e.getStatus() != null ? e.getStatus().name() : "")
                 .isHot(e.isHot())
                 .build();
+    }
+
+    private ChatResponse executeAutonomousBookingTool(String lower) {
+        List<Event> matched = findRelevantEvents(lower);
+        Event target = !matched.isEmpty() ? matched.get(0) : eventRepository.findAll().stream().findFirst().orElse(null);
+        if (target == null) return null;
+
+        List<Zone> zones = zoneRepository.findByEventIdOrderBySortOrder(target.getId());
+        if (zones.isEmpty()) {
+            for (Event e : eventRepository.findAll()) {
+                List<Zone> zList = zoneRepository.findByEventIdOrderBySortOrder(e.getId());
+                if (!zList.isEmpty()) {
+                    target = e;
+                    zones = zList;
+                    break;
+                }
+            }
+        }
+        if (zones.isEmpty()) return null;
+
+        // Phân tích ưu tiên: VIP hay Giá rẻ nhất (Budget)
+        Zone selectedZone;
+        if (matchesAny(lower, "vip", "xịn nhất", "gần sân khấu", "fanzone", "đắt nhất")) {
+            selectedZone = zones.stream()
+                    .max((z1, z2) -> z1.getPrice().compareTo(z2.getPrice()))
+                    .orElse(zones.get(0));
+        } else if (matchesAny(lower, "rẻ nhất", "tiết kiệm", "giá mềm", "sinh viên", "khán đài")) {
+            selectedZone = zones.stream()
+                    .min((z1, z2) -> z1.getPrice().compareTo(z2.getPrice()))
+                    .orElse(zones.get(0));
+        } else {
+            selectedZone = zones.get(0);
+        }
+
+        List<Seat> seats = seatRepository.findByZoneId(selectedZone.getId());
+        Seat availableSeat = seats.stream()
+                .filter(s -> s.getStatus() == SeatStatus.AVAILABLE)
+                .findFirst()
+                .orElse(null);
+
+        java.util.Map<String, Object> payload = new java.util.HashMap<>();
+        payload.put("eventId", target.getId());
+        payload.put("eventName", target.getName());
+        payload.put("venue", target.getVenue());
+        payload.put("city", target.getCity());
+        payload.put("zoneId", selectedZone.getId());
+        payload.put("zoneName", selectedZone.getName());
+        payload.put("price", selectedZone.getPrice());
+
+        if (availableSeat != null) {
+            payload.put("seatId", availableSeat.getId());
+            payload.put("seatLabel", availableSeat.getLabel());
+        }
+
+        String seatInfo = availableSeat != null
+                ? String.format("ghế **%s** (Khu vực: **%s**)", availableSeat.getLabel(), selectedZone.getName())
+                : String.format("khu vực **%s**", selectedZone.getName());
+
+        String reply = String.format(
+                "🤖 **Trợ lý Ảo TicketRush đã kích hoạt Tool [AutonomousSeatPicker]:**\n\n" +
+                "Tôi đã tìm thấy vị trí tốt nhất theo yêu cầu của bạn: %s với giá **%,.0f VNĐ** cho sự kiện **%s**.\n" +
+                "📍 **Địa điểm:** %s\n" +
+                "⏰ **Thời gian:** %s\n\n" +
+                "Thẻ đặt vé tương tác bên dưới đã được chuẩn bị sẵn, bạn có thể bấm trực tiếp để giữ ghế ngay nhé!",
+                seatInfo,
+                selectedZone.getPrice(),
+                target.getName(),
+                target.getVenue(),
+                target.getEventDate() != null ? target.getEventDate().format(DATE_FORMATTER) : "Sắp diễn ra"
+        );
+
+        return ChatResponse.builder()
+                .reply(reply)
+                .events(List.of(toCardDto(target)))
+                .actionType("AUTONOMOUS_BOOKING_CARD")
+                .targetEventId(target.getId())
+                .actionPayload(payload)
+                .suggestions(List.of("Cách thanh toán vé", "Chính sách hoàn đổi vé", "Sự kiện khác"))
+                .build();
+    }
+
+    private boolean isGreeting(String lower) {
+        String trimmed = lower.trim();
+        return trimmed.equals("hi") || trimmed.equals("hello") || trimmed.equals("hey") ||
+               trimmed.equals("halo") || trimmed.equals("alo") || trimmed.equals("chào") ||
+               trimmed.equals("xin chào") || trimmed.startsWith("xin chào") ||
+               trimmed.startsWith("chào bạn");
     }
 
     private boolean matchesAny(String text, String... keywords) {

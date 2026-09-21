@@ -1,0 +1,74 @@
+[
+  {
+    "id": "GT-001",
+    "category": "LIVE_MUSIC",
+    "event_name": "Live Concert: ANH TRAI SAY HI 2026 - Đêm 3",
+    "question": "Concert Anh Trai Say Hi Đêm 3 được tổ chức ở đâu và vào thời gian nào?",
+    "ground_truth": "Concert Anh Trai Say Hi Đêm 3 được tổ chức tại Sân vận động Quốc gia Mỹ Đình, Đường Lê Đức Thọ, Phường Mỹ Đình 1, Nam Từ Liêm, Hà Nội. Mở cửa khán đài từ 16h00 và bắt đầu đêm diễn lúc 19h30.",
+    "expected_keywords": ["Sân vận động Quốc gia Mỹ Đình", "Hà Nội", "19:30"],
+    "min_expected_score": 0.35
+  },
+  {
+    "id": "GT-002",
+    "category": "SYSTEM_POLICY",
+    "event_name": "Quy định Chung Sự Kiện",
+    "question": "Danh mục các đồ vật bị cấm mang vào các sự kiện biểu diễn gồm những gì?",
+    "ground_truth": "Nghiêm cấm mang vũ khí, pháo sáng, đồ uống có cồn, chai lọ thủy tinh/kim loại, thiết bị ghi hình chuyên nghiệp (máy ảnh ống kính rời DSLR, flycam, gậy tự sướng selfie stick dài trên 30cm) và các chất kích thích.",
+    "expected_keywords": ["vũ khí", "pháo sáng", "máy ảnh", "gậy tự sướng"],
+    "min_expected_score": 0.35
+  },
+  {
+    "id": "GT-003",
+    "category": "LIVE_MUSIC",
+    "event_name": "Vũ. Live Concert - Bảo Tàng Của Nuối Tiếc",
+    "question": "Concert của Vũ diễn ra ở địa điểm nào và giá vé các hạng ra sao?",
+    "ground_truth": "Concert của Vũ diễn ra tại Nhà thi đấu Nguyễn Du, Số 116 Nguyễn Du, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh. Các hạng vé gồm VIP (1.800.000đ), GA 1 (1.200.000đ), GA 2 (900.000đ) và Khán đài (600.000đ).",
+    "expected_keywords": ["Nhà thi đấu Nguyễn Du", "Hồ Chí Minh", "VIP", "600.000"],
+    "min_expected_score": 0.35
+  },
+  {
+    "id": "GT-004",
+    "category": "ARTS",
+    "event_name": "Kịch Sân Khấu IDECAF: Ngày Xửa Ngày Xưa 35 - Hoàng Tử Gấu",
+    "question": "Vở kịch Ngày Xửa Ngày Xưa 35 diễn ra ở đâu và có những nghệ sĩ nào tham gia?",
+    "ground_truth": "Vở kịch diễn ra tại Nhà hát Bến Thành, Số 6 Mạc Đĩnh Chi, Quận 1, TP. Hồ Chí Minh với sự tham gia của NSƯT Thành Lộc, NSƯT Hữu Châu, NSND Kim Xuân, Bạch Long, Lê Khánh và Đình Toàn.",
+    "expected_keywords": ["Nhà hát Bến Thành", "Thành Lộc", "Hữu Châu"],
+    "min_expected_score": 0.35
+  },
+  {
+    "id": "GT-005",
+    "category": "SPORTS",
+    "event_name": "VBA 2026: Chung Kết Saigon Heat vs Hanoi Buffaloes",
+    "question": "Trận chung kết VBA 2026 giữa Saigon Heat và Hanoi Buffaloes diễn ra ở đâu?",
+    "ground_truth": "Trận chung kết diễn ra tại Nhà thi đấu trường Quốc tế CIS, Đường số 23, Khu đô thị Phú Mỹ Hưng, Quận 7, TP. Hồ Chí Minh.",
+    "expected_keywords": ["Nhà thi đấu", "CIS", "Phú Mỹ Hưng", "Quận 7"],
+    "min_expected_score": 0.35
+  },
+  {
+    "id": "GT-006",
+    "category": "EXPERIENCE",
+    "event_name": "Triển Lãm Đa Giác Quan Van Gogh & Monet Immersive",
+    "question": "Triển lãm tranh Van Gogh và Monet tổ chức tại đâu và mở cửa những khung giờ nào?",
+    "ground_truth": "Triển lãm tổ chức tại Tầng 8, TTTM Gigamall, 240-242 Phạm Văn Đồng, TP. Thủ Đức, TP. Hồ Chí Minh. Mở cửa từ 09h30 đến 22h00 hàng ngày.",
+    "expected_keywords": ["Gigamall", "Phạm Văn Đồng", "Thủ Đức"],
+    "min_expected_score": 0.35
+  },
+  {
+    "id": "GT-007",
+    "category": "SYSTEM_POLICY",
+    "event_name": "Hệ thống TicketRush",
+    "question": "Tôi có bao nhiêu thời gian để giữ chỗ và thanh toán tiền vé?",
+    "ground_truth": "Hệ thống TicketRush cho phép giữ chỗ tạm thời trong vòng 10 phút. Nếu quá 10 phút bạn chưa hoàn tất thanh toán, ghế sẽ tự động giải phóng để người khác chọn.",
+    "expected_keywords": ["10 phút", "giữ chỗ", "giải phóng"],
+    "min_expected_score": 0.30
+  },
+  {
+    "id": "GT-008",
+    "category": "SYSTEM_POLICY",
+    "event_name": "Hệ thống TicketRush",
+    "question": "Hàng đợi ảo (Waiting Room) hoạt động như thế nào khi mở bán vé nóng?",
+    "ground_truth": "Hàng đợi ảo dựa trên cơ chế FIFO quản lý bởi Redis. Người dùng được xếp hàng theo thứ tự, hệ thống xả hàng theo từng đợt batch và cấp Queue Token để người dùng vào phòng chọn ghế.",
+    "expected_keywords": ["hàng đợi", "FIFO", "token", "chọn ghế"],
+    "min_expected_score": 0.30
+  }
+]

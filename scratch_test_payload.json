@@ -1,0 +1,13 @@
+{
+  "model": "google/gemini-2.0-flash-exp:free",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Bạn là Trợ lý ảo AI của nền tảng TicketRush."
+    },
+    {
+      "role": "user",
+      "content": "Xin chào! Bạn có thể giúp gì cho tôi trên TicketRush?"
+    }
+  ]
+}

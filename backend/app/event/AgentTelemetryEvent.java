@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Data
 @Builder
 @NoArgsConstructor
@@ -21,5 +19,5 @@ public class AgentTelemetryEvent {
     private String ragSource;
     private String modelUsed;
     private String status;
-    private LocalDateTime timestamp;
+    private String timestamp;
 }

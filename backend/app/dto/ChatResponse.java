@@ -16,6 +16,7 @@ public class ChatResponse {
     private List<String> suggestions;
     private String actionType;
     private Long targetEventId;
+    private java.util.Map<String, Object> actionPayload;
     private String logId;
     private Long latencyMs;
     private String modelUsed;

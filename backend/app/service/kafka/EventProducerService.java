@@ -84,7 +84,7 @@ public class EventProducerService {
         if (!isKafkaActive()) return;
         try {
             kafkaTemplate.send(telemetryTopic, event.getLogId(), event);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             log.warn("Non-critical: Failed to stream telemetry event to Kafka: {}", e.getMessage());
         }
     }

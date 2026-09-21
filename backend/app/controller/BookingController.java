@@ -5,6 +5,7 @@ import app.entity.User;
 import app.service.AuthService;
 import app.service.SeatBookingService;
 import lombok.RequiredArgsConstructor;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -81,4 +82,26 @@ public class BookingController {
         return ResponseEntity.ok(ApiResponse.success(bookingService.getTicketById(user.getId(), ticketId)));
     }
 
+    /**
+     * API sinh mã QR động TOTP (hiệu lực 30 giây) chống chụp màn hình.
+     */
+    @GetMapping("/tickets/{ticketId}/dynamic-qr")
+    public ResponseEntity<ApiResponse<DynamicQRResponse>> getDynamicQR(
+            @PathVariable Long ticketId,
+            @AuthenticationPrincipal UserDetails userDetails) {
+        User user = authService.getCurrentUser(userDetails.getUsername());
+        return ResponseEntity.ok(ApiResponse.success(bookingService.getDynamicQR(user.getId(), ticketId)));
+    }
+
+    /**
+     * API quét và soát vé check-in tại cổng sự kiện.
+     * Cho phép nhân viên soát vé (Staff / Admin) xác thực vé vào cổng.
+     */
+    @PostMapping("/tickets/checkin")
+    public ResponseEntity<ApiResponse<TicketResponse>> checkinTicket(
+            @Valid @RequestBody CheckinRequest request,
+            @AuthenticationPrincipal UserDetails userDetails) {
+        TicketResponse res = bookingService.checkinTicket(request.getQrCode(), userDetails.getUsername());
+        return ResponseEntity.ok(ApiResponse.success("Xác thực vé thành công! Khách được phép vào cổng.", res));
+    }
 }
